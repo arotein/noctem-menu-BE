@@ -1,0 +1,74 @@
+server:
+  port: 0
+  servlet:
+    encoding:
+      charset: UTF-8
+      enable: true
+      force: true
+  shutdown: graceful
+
+spring:
+  application:
+    name: menu-service
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: 'true'
+  config:
+    import: optional:configserver:http://${HOST_SERVER}:8888
+  profiles:
+    active: ${PROFILE}
+  cloud:
+    config:
+      fail-fast: false # true: config 서버에 연결하지 못하면 앱이 실행되지 않도록 함
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+      destination: config-topic
+  kafka:
+    bootstrap-servers: http://${HOST_SERVER}:9092 # 카프카 클러스터 주소
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/menu?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+#    username: ${NOCTEM_DB_USERNAME}
+#    password: ${NOCTEM_DB_PASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        query.in_clause_parameter_padding: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+    hibernate.ddl-auto: create
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${HOST_SERVER}:8761/eureka
+
+management:
+  endpoints:
+    web:
+      base-path: /api/menu-service/actuator
+      exposure:
+        include: health, refresh, beans, httptrace, busrefresh, prometheus, metrics
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${spring.application.name}
+
+global:
+  jwt-token:
+    signer: ${NOCTEM_JWT_SIGNER}
+  value: local-menu

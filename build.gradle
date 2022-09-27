@@ -1,0 +1,71 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+	id 'com.google.cloud.tools.jib' version '3.3.0'
+}
+
+jib {
+	from {
+		auth {
+			username = System.getenv("DOCKERHUB_ID")
+			password = System.getenv("DOCKERHUB_PW")
+		}
+	}
+	to {
+		image = System.getenv("DOCKERHUB_IMG_MENU")
+		tags = ['latest']
+		auth {
+			username = System.getenv("DOCKERHUB_ID")
+			password = System.getenv("DOCKERHUB_PW")
+		}
+	}
+	container {
+		volumes = ["/tmp"]
+	}
+}
+
+group = 'noctem'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', "2021.0.4")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.cloud:spring-cloud-bus'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-bus-kafka'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.7.3'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
