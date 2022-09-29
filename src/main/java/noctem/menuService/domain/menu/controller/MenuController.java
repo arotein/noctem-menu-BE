@@ -5,6 +5,7 @@ import noctem.menuService.domain.menu.dto.MenuDto;
 import noctem.menuService.domain.menu.dto.vo.RequestMenu;
 import noctem.menuService.domain.menu.dto.vo.ResponseMenu;
 import noctem.menuService.domain.menu.service.IMenuService;
+import noctem.menuService.global.common.CommonResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/menu-service/menu")
+@RequestMapping("/api/menu-service")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MenuController {
 
@@ -27,10 +28,11 @@ public class MenuController {
         3. 메뉴 삭제
         4. 메뉴 전체 조회
         5. 메뉴 단건 조회
+        6. 소카테고리-메뉴 조회
      */
 
     // 1. 메뉴 등록
-    @PostMapping
+    @PostMapping("/menu")
     public ResponseEntity<ResponseMenu> addMenu(@RequestBody RequestMenu requestMenu){
 
         ModelMapper modelMapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -44,7 +46,7 @@ public class MenuController {
     }
 
     // 2. 메뉴 수정
-    @PutMapping("/{menuId}")
+    @PutMapping("/menu/{menuId}")
     public ResponseEntity<ResponseMenu> editMenu(@PathVariable Long menuId,
                                                  @RequestBody RequestMenu requestMenu) throws Exception {
 
@@ -59,7 +61,7 @@ public class MenuController {
     }
 
     // 3. 메뉴 삭제
-    @PatchMapping("/{menuId}")
+    @DeleteMapping("/menu/{menuId}")
     public ResponseEntity<ResponseMenu> deleteMenu(@PathVariable Long menuId) throws Exception {
 
         ModelMapper modelMapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -72,7 +74,7 @@ public class MenuController {
     }
 
     // 4. 메뉴 전체 조회
-    @GetMapping
+    @GetMapping("/menu")
     public ResponseEntity<List<ResponseMenu>> getAllMenu(){
 
         ModelMapper modelMapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -88,7 +90,7 @@ public class MenuController {
     }
 
     // 5. 메뉴 단건 조회
-    @GetMapping("/{menuId}")
+    @GetMapping("/menu/{menuId}")
     public ResponseEntity<ResponseMenu> getOneMenu(@PathVariable Long menuId) throws Exception {
 
         ModelMapper modelMapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -98,5 +100,13 @@ public class MenuController {
         ResponseMenu responseMenu = modelMapper.map(menuDto, ResponseMenu.class);
 
         return ResponseEntity.status(HttpStatus.OK).body(responseMenu);
+    }
+
+    // 6. 소카테고리-메뉴 조회
+    @GetMapping("/{categorySId}/menu")
+    public CommonResponse getMenuList(@PathVariable Long categorySId) {
+        return CommonResponse.builder()
+                .data(iMenuService.getMenuList(categorySId))
+                .build();
     }
 }

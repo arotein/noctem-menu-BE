@@ -1,5 +1,6 @@
 package noctem.menuService.domain.menu.dto.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import noctem.menuService.domain.categoryS.entity.CategorySEntity;
@@ -13,7 +14,6 @@ import java.util.List;
 public class ResponseMenu {
 
     private Long id;
-    private String description;
     private String allergy;
     private Integer price;
     private boolean isSoldOut;
@@ -21,5 +21,6 @@ public class ResponseMenu {
 
     private List<TemperatureEntity> temperatureEntityList = new ArrayList<>();
 
+    @JsonIgnore
     private CategorySEntity categorySEntity;
 }

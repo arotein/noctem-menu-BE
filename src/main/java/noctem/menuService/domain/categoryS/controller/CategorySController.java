@@ -72,7 +72,7 @@ public class CategorySController {
     }
 
     // 3. 소 카테고리 삭제
-    @PatchMapping("/{categorySId}")
+    @DeleteMapping("/{categorySId}")
     public ResponseEntity<ResponseCategoryS> deleteCategoryS(@PathVariable Long categorySId) throws Exception {
 
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용

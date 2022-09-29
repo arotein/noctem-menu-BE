@@ -20,8 +20,9 @@ public class TemperatureEntity extends BaseEntity {
     private Long id;
     private String temperature;
     private String menuName;
-    private String menuShortenName;
-    private String img;
+    private String menuEngName;
+    private String description;
+    private String menuImg;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "menu_id")

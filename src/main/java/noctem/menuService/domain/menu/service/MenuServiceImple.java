@@ -1,10 +1,10 @@
 package noctem.menuService.domain.menu.service;
 
 import lombok.RequiredArgsConstructor;
-import noctem.menuService.domain.categoryS.dto.CategorySDto;
 import noctem.menuService.domain.menu.dto.MenuDto;
+import noctem.menuService.domain.menu.dto.MenuListResDto;
 import noctem.menuService.domain.menu.entity.MenuEntity;
-import noctem.menuService.domain.menu.repository.IMenuRepository;
+import noctem.menuService.domain.menu.repository.IIMenuRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
@@ -12,12 +12,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class MenuServiceImple implements IMenuService{
+public class MenuServiceImple implements IMenuService {
 
-    private final IMenuRepository iMenuRepository;
+    private final IIMenuRepository iMenuRepository;
+    private final String TEMPERATURE_POLICY = "ice";
 
     /*
         1. 메뉴 등록
@@ -25,6 +27,7 @@ public class MenuServiceImple implements IMenuService{
         3. 메뉴 삭제
         4. 메뉴 전체 조회
         5. 메뉴 단건 조회
+        6. 소카테고리-메뉴 조회
      */
 
     // 1. 메뉴 등록
@@ -52,7 +55,7 @@ public class MenuServiceImple implements IMenuService{
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
 
-        if(menuEntity.isPresent()){
+        if (menuEntity.isPresent()) {
             MenuEntity menu = mapper.map(menuDto, MenuEntity.class); // MenuDto -> MenuEntity
             menu.setId(menuId); // 동일 id로 수정
             iMenuRepository.save(menu); // 엔터티 저장
@@ -74,7 +77,7 @@ public class MenuServiceImple implements IMenuService{
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
 
-        if(menuEntity.isPresent()){
+        if (menuEntity.isPresent()) {
             menuEntity.get().setIsDeleted(true); // 삭제여부 true
 
             iMenuRepository.save(menuEntity.get());
@@ -95,7 +98,7 @@ public class MenuServiceImple implements IMenuService{
 
         menuEntityList.forEach(menuEntity -> {
 
-            if(menuEntity.getIsDeleted() == false)
+            if (menuEntity.getIsDeleted() == false)
                 menuDtoList.add(new ModelMapper().map(menuEntity, MenuDto.class));
         });
         return menuDtoList;
@@ -110,11 +113,20 @@ public class MenuServiceImple implements IMenuService{
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
 
-        if(menuEntity.isPresent() && menuEntity.get().getIsDeleted() == false){ // 논리삭제가 false인 것
+        if (menuEntity.isPresent() && menuEntity.get().getIsDeleted() == false) { // 논리삭제가 false인 것
             MenuDto menuDto = mapper.map(menuEntity, MenuDto.class); // MenuEntity -> MenuDto
             return menuDto;
         } else {
             throw new Exception("해당하는 메뉴 id가 없습니다.");
         }
+    }
+
+    // 6. 소카테고리-메뉴 조회
+    @Override
+    public List<MenuListResDto> getMenuList(Long categorySId) {
+        List<MenuEntity> menuList = iMenuRepository.findMenuByCategoryS(categorySId);
+        return menuList.stream().map(e ->
+                        new MenuListResDto(e.getTemperatureEntityList(), e.getPrice(), TEMPERATURE_POLICY))
+                .collect(Collectors.toList());
     }
 }

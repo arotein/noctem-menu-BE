@@ -2,6 +2,9 @@ package noctem.menuService.domain.menu.service;
 
 import noctem.menuService.domain.categoryS.dto.CategorySDto;
 import noctem.menuService.domain.menu.dto.MenuDto;
+import noctem.menuService.domain.menu.dto.MenuListResDto;
+
+import java.util.List;
 
 public interface IMenuService {
 
@@ -11,6 +14,7 @@ public interface IMenuService {
         3. 메뉴 삭제
         4. 메뉴 전체 조회
         5. 메뉴 단건 조회
+        6. 소카테고리-메뉴 조회
      */
 
     // 1. 메뉴 등록
@@ -27,4 +31,7 @@ public interface IMenuService {
 
     // 5. 메뉴 단건 조회
     MenuDto getOneMenu(Long menuId) throws Exception;
+
+    // 6. 소카테고리-메뉴 조회
+    List<MenuListResDto> getMenuList(Long categorySId);
 }

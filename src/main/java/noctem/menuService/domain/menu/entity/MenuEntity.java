@@ -1,5 +1,6 @@
 package noctem.menuService.domain.menu.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import noctem.menuService.domain.categoryS.entity.CategorySEntity;
@@ -18,18 +19,16 @@ public class MenuEntity extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String description;
     private String allergy;
     private Integer price;
-    @Column(columnDefinition="tinyint(1) default 0")
-    private boolean isSoldOut;
-    @Column(columnDefinition="tinyint(1) default 0")
-    private boolean isEos;
+    private Boolean isSoldOut = false;
+    private Boolean isEos = false;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "menuEntity")
     private List<TemperatureEntity> temperatureEntityList = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "temperature_id")
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "categorys_id")
     private CategorySEntity categorySEntity;
 }

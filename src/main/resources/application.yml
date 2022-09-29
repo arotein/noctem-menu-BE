@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 53639
   servlet:
     encoding:
       charset: UTF-8
@@ -10,10 +10,14 @@ server:
 spring:
   application:
     name: menu-service
-  mvc:
+  mvc: # data.sql
     hiddenmethod:
       filter:
         enabled: 'true'
+  sql:
+    init:
+      mode: always
+
   config:
     import: optional:configserver:http://${HOST_SERVER}:8888
   profiles:
@@ -36,14 +40,15 @@ spring:
 #    username: ${NOCTEM_DB_USERNAME}
 #    password: ${NOCTEM_DB_PASSWORD}
   jpa:
+    show-sql: 'true'
     properties:
       hibernate:
         format_sql: true
         query.in_clause_parameter_padding: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
-
     hibernate.ddl-auto: create
+    defer-datasource-initialization: true # data.sql
 
 eureka:
   instance:
@@ -72,3 +77,11 @@ global:
   jwt-token:
     signer: ${NOCTEM_JWT_SIGNER}
   value: local-menu
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
