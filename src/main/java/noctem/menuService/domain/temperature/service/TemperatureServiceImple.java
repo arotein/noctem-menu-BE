@@ -1,7 +1,9 @@
 package noctem.menuService.domain.temperature.service;
 
 import lombok.RequiredArgsConstructor;
+import noctem.menuService.domain.menu.dto.MenuListResDto;
 import noctem.menuService.domain.temperature.dto.TemperatureDto;
+import noctem.menuService.domain.temperature.dto.TemperatureListResDto;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import noctem.menuService.domain.temperature.repository.ITemperatureRepository;
 import org.modelmapper.ModelMapper;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +27,7 @@ public class TemperatureServiceImple implements ITemperatureService{
         3. 온도 삭제
         4. 온도 전체 조회
         5. 온도 단건 조회
+        6. 메뉴-온도 리스트 조회
      */
 
     // 1. 온도 등록
@@ -114,5 +118,20 @@ public class TemperatureServiceImple implements ITemperatureService{
         } else {
             throw new Exception("해당하는 온도 id가 없습니다.");
         }
+    }
+
+    // 6. 메뉴-온도 리스트 조회
+    @Override
+    public List<TemperatureListResDto> getTemperatureByMenu(Long menuId) {
+
+        List<TemperatureEntity> temperatureEntityList = iTemperatureRepository.findTempByMenu(menuId);
+
+//        return menuList.stream().map(e ->
+//                        new MenuListResDto(e.getTemperatureEntityList(), e.getPrice(), TEMPERATURE_POLICY))
+//                .collect(Collectors.toList());
+
+        return temperatureEntityList.stream().map(e ->
+                new TemperatureListResDto(e.getTemperature()))
+                .collect(Collectors.toList());
     }
 }

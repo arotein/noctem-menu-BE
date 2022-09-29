@@ -17,9 +17,9 @@ public class TemperatureDto {
     private Long id;
     private String temperature;
     private String menuName;
-    private String menuShortenName;
+    private String menuEngName;
     private String description;
-    private String img;
+    private String menuImg;
 
     private MenuEntity menuEntity;
 

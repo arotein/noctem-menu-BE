@@ -1,5 +1,6 @@
 package noctem.menuService.domain.size.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
@@ -20,6 +21,7 @@ public class SizeEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "temperature_id")
+    @JsonIgnore
     private TemperatureEntity temperatureEntity;
 
 }

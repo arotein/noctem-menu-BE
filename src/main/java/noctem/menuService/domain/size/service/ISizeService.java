@@ -1,7 +1,10 @@
 package noctem.menuService.domain.size.service;
 
-import noctem.menuService.domain.size.dto.SizeDto;
-import noctem.menuService.domain.temperature.dto.TemperatureDto;
+import noctem.menuService.domain.size.dto.SizeByTempResDto;
+import noctem.menuService.domain.size.dto.SizeReqDto;
+import noctem.menuService.domain.size.dto.SizeResDto;
+
+import java.util.List;
 
 public interface ISizeService {
 
@@ -11,21 +14,24 @@ public interface ISizeService {
         3. 사이즈 삭제
         4. 사이즈 전체 조회
         5. 사이즈 단건 조회
+        6. 온도-사이즈 리스트 조회
      */
 
     // 1. 온도 등록
-    SizeDto addSize(SizeDto sizeDto);
+    SizeReqDto addSize(SizeReqDto sizeReqDto);
 
     // 2. 온도 수정
-    SizeDto editSize(Long sizeId, SizeDto sizeDto);
+    SizeReqDto editSize(Long sizeId, SizeReqDto sizeReqDto);
 
     // 3. 온도 삭제
-    SizeDto deleteSize(Long sizeId);
+    SizeResDto deleteSize(Long sizeId);
 
     // 4. 온도 전체 조회
-    Iterable<SizeDto> getAllSize();
+    Iterable<SizeResDto> getAllSize();
 
     // 5. 온도 단건 조회
-    SizeDto getOneSize(Long sizeId);
+    SizeResDto getOneSize(Long sizeId);
 
+    // 6. 온도-사이즈 리스트 조회
+    List<SizeByTempResDto> getSizeListByTemperature(Long temperatureId);
 }

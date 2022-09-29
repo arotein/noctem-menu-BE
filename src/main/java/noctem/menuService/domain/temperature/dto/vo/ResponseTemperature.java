@@ -1,5 +1,6 @@
 package noctem.menuService.domain.temperature.dto.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import noctem.menuService.domain.menu.entity.MenuEntity;
@@ -15,10 +16,11 @@ public class ResponseTemperature {
     private Long id;
     private String temperature;
     private String menuName;
-    private String menuShortenName;
+    private String menuEngName;
     private String description;
-    private String img;
+    private String menuImg;
 
+    @JsonIgnore
     private MenuEntity menuEntity;
 
     private List<SizeEntity> sizeEntityList = new ArrayList<>();

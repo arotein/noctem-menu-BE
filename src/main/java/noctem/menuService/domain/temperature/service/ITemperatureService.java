@@ -1,6 +1,9 @@
 package noctem.menuService.domain.temperature.service;
 
 import noctem.menuService.domain.temperature.dto.TemperatureDto;
+import noctem.menuService.domain.temperature.dto.TemperatureListResDto;
+
+import java.util.List;
 
 public interface ITemperatureService {
 
@@ -10,6 +13,7 @@ public interface ITemperatureService {
         3. 온도 삭제
         4. 온도 전체 조회
         5. 온도 단건 조회
+        6. 메뉴-온도 리스트 조회
      */
 
     // 1. 온도 등록
@@ -26,4 +30,7 @@ public interface ITemperatureService {
 
     // 5. 온도 단건 조회
     TemperatureDto getOneTemperature(Long temperatureId) throws Exception;
+
+    // 6. 메뉴-온도 리스트 조회
+    List<TemperatureListResDto> getTemperatureByMenu(Long menuId);
 }

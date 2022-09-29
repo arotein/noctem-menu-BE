@@ -1,11 +1,11 @@
 package noctem.menuService.domain.size.service;
 
 import lombok.RequiredArgsConstructor;
-import noctem.menuService.domain.size.dto.SizeDto;
+import noctem.menuService.domain.size.dto.SizeByTempResDto;
+import noctem.menuService.domain.size.dto.SizeReqDto;
+import noctem.menuService.domain.size.dto.SizeResDto;
 import noctem.menuService.domain.size.entity.SizeEntity;
 import noctem.menuService.domain.size.repository.ISizeRepository;
-import noctem.menuService.domain.temperature.dto.TemperatureDto;
-import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -26,45 +27,46 @@ public class SizeServiceImple implements ISizeService{
         3. 사이즈 삭제
         4. 사이즈 전체 조회
         5. 사이즈 단건 조회
+        6. 온도-사이즈 리스트 조회
      */
 
     // 1. 사이즈 등록
     @Override
-    public SizeDto addSize(SizeDto sizeDto) {
+    public SizeReqDto addSize(SizeReqDto sizeReqDto) {
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
 
-        SizeEntity sizeEntity = mapper.map(sizeDto, SizeEntity.class); // SizeDto -> SizeEntity
+        SizeEntity sizeEntity = mapper.map(sizeReqDto, SizeEntity.class); // SizeDto -> SizeEntity
         iSizeRepository.save(sizeEntity);
 
-        SizeDto resultSizeDto = mapper.map(sizeEntity, SizeDto.class); // SizeEntity -> SizeDto
+        SizeReqDto resultSizeReqDto = mapper.map(sizeEntity, SizeReqDto.class); // SizeEntity -> SizeDto
 
-        return resultSizeDto;
+        return resultSizeReqDto;
     }
 
     // 2. 사이즈 수정
     @Override
-    public SizeDto editSize(Long sizeId, SizeDto sizeDto) {
+    public SizeReqDto editSize(Long sizeId, SizeReqDto sizeReqDto) {
         Optional<SizeEntity> sizeEntity = iSizeRepository.findById(sizeId);
 
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
 
         if(sizeEntity.isPresent()){
-            SizeEntity size = mapper.map(sizeDto, SizeEntity.class); // SizeDto -> SizeEntity
+            SizeEntity size = mapper.map(sizeReqDto, SizeEntity.class); // SizeDto -> SizeEntity
             size.setId(sizeId); // 동일 id로 수정
             iSizeRepository.save(size); // 엔터티 저장
 
-            SizeDto resultSizeDto = mapper.map(size, SizeDto.class); // SizeEntity -> SizeDto
+            SizeReqDto resultSizeReqDto = mapper.map(size, SizeReqDto.class); // SizeEntity -> SizeDto
 
-            return resultSizeDto;
+            return resultSizeReqDto;
         }
         return null;
     }
 
     // 3. 사이즈 삭제
     @Override
-    public SizeDto deleteSize(Long sizeId) {
+    public SizeResDto deleteSize(Long sizeId) {
         Optional<SizeEntity> sizeEntity = iSizeRepository.findById(sizeId);
 
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -74,7 +76,7 @@ public class SizeServiceImple implements ISizeService{
             sizeEntity.get().setIsDeleted(true); // 삭제여부 true
 
             iSizeRepository.save(sizeEntity.get());
-            SizeDto sizeDto = mapper.map(sizeEntity, SizeDto.class);
+            SizeResDto sizeDto = mapper.map(sizeEntity, SizeResDto.class);
 
             return sizeDto;
         }
@@ -83,13 +85,13 @@ public class SizeServiceImple implements ISizeService{
 
     // 4. 사이즈 전체 조회
     @Override
-    public Iterable<SizeDto> getAllSize() {
+    public Iterable<SizeResDto> getAllSize() {
         List<SizeEntity> sizeEntityList = iSizeRepository.findAll();
-        List<SizeDto> sizeDtoList = new ArrayList<>(); // 비어 있는 sizeDto 리스트 선언
+        List<SizeResDto> sizeDtoList = new ArrayList<>(); // 비어 있는 sizeDto 리스트 선언
 
         sizeEntityList.forEach(sizeEntity -> {
             if (sizeEntity.getIsDeleted() == false)
-                sizeDtoList.add(new ModelMapper().map(sizeEntity, SizeDto.class));
+                sizeDtoList.add(new ModelMapper().map(sizeEntity, SizeResDto.class));
         });
 
         return sizeDtoList;
@@ -97,16 +99,27 @@ public class SizeServiceImple implements ISizeService{
 
     // 5. 사이즈 단건 조회
     @Override
-    public SizeDto getOneSize(Long sizeId) {
+    public SizeResDto getOneSize(Long sizeId) {
         Optional<SizeEntity> sizeEntity = iSizeRepository.findById(sizeId);
 
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
 
         if (sizeEntity.isPresent() && sizeEntity.get().getIsDeleted() == false) { // 논리삭제가 false인 것
-            SizeDto sizeDto = mapper.map(sizeEntity, SizeDto.class); // SizeEntity -> SizeDto
+            SizeResDto sizeDto = mapper.map(sizeEntity, SizeResDto.class); // SizeEntity -> SizeDto
             return sizeDto;
         }
         return null;
+    }
+
+    // 6. 온도-사이즈 리스트 조회
+    @Override
+    public List<SizeByTempResDto> getSizeListByTemperature(Long temperatureId) {
+
+        List<SizeEntity> sizeByTemp = iSizeRepository.findSizeListByTemp(temperatureId);
+
+        return sizeByTemp.stream().map(sizeEntity ->
+            new SizeByTempResDto(sizeEntity.getSize(), sizeEntity.getExtraCost()))
+                .collect(Collectors.toList());
     }
 }
