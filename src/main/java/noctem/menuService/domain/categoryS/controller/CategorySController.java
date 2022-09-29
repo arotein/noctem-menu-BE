@@ -6,6 +6,7 @@ import noctem.menuService.domain.categoryS.dto.CategorySDto;
 import noctem.menuService.domain.categoryS.dto.vo.RequestCategoryS;
 import noctem.menuService.domain.categoryS.dto.vo.ResponseCategoryS;
 import noctem.menuService.domain.categoryS.service.ICategorySService;
+import noctem.menuService.global.common.CommonResponse;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/menu-service/categoryS")
+@RequestMapping("/api/menu-service")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @Slf4j
@@ -30,10 +31,11 @@ public class CategorySController {
         3. 소 카테고리 삭제
         4. 소 카테고리 전체 조회
         5. 소 카테고리 단건 조회
+        6. 대 카테고리 - 소 카테고리 리스트 조회
      */
 
     // 1. 소 카테고리 등록
-    @PostMapping
+    @PostMapping("/categoryS")
     public ResponseEntity<ResponseCategoryS> addCategoryS(@RequestBody RequestCategoryS requestCategoryS){
 
         ModelMapper mapperMapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -56,7 +58,7 @@ public class CategorySController {
     }
 
     // 2. 소 카테고리 수정
-    @PutMapping("/{categorySId}")
+    @PutMapping("/categoryS/{categorySId}")
     public ResponseEntity<ResponseCategoryS> editCategoryS(@PathVariable Long categorySId,
                                                            @RequestBody RequestCategoryS requestCategoryS) throws Exception {
 
@@ -72,7 +74,7 @@ public class CategorySController {
     }
 
     // 3. 소 카테고리 삭제
-    @DeleteMapping("/{categorySId}")
+    @DeleteMapping("/categoryS/{categorySId}")
     public ResponseEntity<ResponseCategoryS> deleteCategoryS(@PathVariable Long categorySId) throws Exception {
 
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -86,7 +88,7 @@ public class CategorySController {
     }
 
     // 4. 소 카테고리 전체 조회
-    @GetMapping
+    @GetMapping("/categoryS")
     public ResponseEntity<List<ResponseCategoryS>> getAllCategoryS(){
 
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -103,7 +105,7 @@ public class CategorySController {
     }
 
     // 5. 소 카테고리 단건 조회
-    @GetMapping("/{categorySId}")
+    @GetMapping("/categoryS/{categorySId}")
     public ResponseEntity<ResponseCategoryS> getOneCategoryS(@PathVariable Long categorySId) throws Exception {
 
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -113,5 +115,13 @@ public class CategorySController {
         ResponseCategoryS responseCategoryS = mapper.map(categorySDto, ResponseCategoryS.class);
 
         return ResponseEntity.status(HttpStatus.OK).body(responseCategoryS);
+    }
+
+    // 6. 대 카테고리 - 소 카테고리 리스트 조회
+    @GetMapping("/{categoryLId}/categoryS")
+    public CommonResponse getCategorySListByCategoryL(@PathVariable Long categoryLId){
+        return CommonResponse.builder()
+                .data(iCategorySService.getCategorySListByCategoryL(categoryLId))
+                .build();
     }
 }

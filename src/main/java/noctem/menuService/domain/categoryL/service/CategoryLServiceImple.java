@@ -65,7 +65,7 @@ public class CategoryLServiceImple implements ICategoryLService{
 
     // 3. 대 카테고리 전체 조회
     @Override
-    public Iterable<CategoryLDto> getAllCategoryL() {
+    public List<CategoryLDto> getAllCategoryL() {
 
         List<CategoryLEntity> categoryLEntityList = iCategoryLRepository.findAll();
         List<CategoryLDto> categoryLDtoList = new ArrayList<>(); // 비어있는 categoryLDtoList 선언

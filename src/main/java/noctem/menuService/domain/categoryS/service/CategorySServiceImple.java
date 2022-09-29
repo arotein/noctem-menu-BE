@@ -2,6 +2,7 @@ package noctem.menuService.domain.categoryS.service;
 
 import lombok.RequiredArgsConstructor;
 import noctem.menuService.domain.categoryS.dto.CategorySDto;
+import noctem.menuService.domain.categoryS.dto.CategorySResDto;
 import noctem.menuService.domain.categoryS.entity.CategorySEntity;
 import noctem.menuService.domain.categoryS.repository.ICategorySRepository;
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +26,7 @@ public class CategorySServiceImple implements ICategorySService {
         3. 소 카테고리 삭제
         4. 소 카테고리 전체 조회
         5. 소 카테고리 단건 조회
+        6. 대 카테고리 - 소 카테고리 리스트 조회
      */
 
     // 1. 소 카테고리 등록
@@ -116,5 +119,15 @@ public class CategorySServiceImple implements ICategorySService {
         } else {
             throw new Exception("해당하는 소 카테고리 id가 없습니다.");
         }
+    }
+
+    // 6. 대 카테고리 - 소 카테고리 리스트 조회
+    @Override
+    public List<CategorySResDto> getCategorySListByCategoryL(Long categoryLId) {
+        List<CategorySEntity> categorySListByCategoryL = iCategorySRepository.findCategorySListByCategoryL(categoryLId);
+
+        return categorySListByCategoryL.stream().map(e ->
+            new CategorySResDto(e.getCategorySName(), e.getCategorySImg()))
+                .collect(Collectors.toList());
     }
 }

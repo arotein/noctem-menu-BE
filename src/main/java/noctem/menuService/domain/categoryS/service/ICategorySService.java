@@ -1,6 +1,9 @@
 package noctem.menuService.domain.categoryS.service;
 
 import noctem.menuService.domain.categoryS.dto.CategorySDto;
+import noctem.menuService.domain.categoryS.dto.CategorySResDto;
+
+import java.util.List;
 
 public interface ICategorySService {
 
@@ -10,6 +13,7 @@ public interface ICategorySService {
         3. 소 카테고리 삭제
         4. 소 카테고리 전체 조회
         5. 소 카테고리 단건 조회
+        6. 대 카테고리 - 소 카테고리 리스트 조회
      */
 
     // 1. 소 카테고리 등록
@@ -26,4 +30,7 @@ public interface ICategorySService {
 
     // 5. 소 카테고리 단건 조회
     CategorySDto getOneCategoryS(Long categorySId) throws Exception;
+
+    // 6. 대 카테고리 - 소 카테고리 리스트 조회
+    List<CategorySResDto> getCategorySListByCategoryL(Long categoryLId);
 }

@@ -13,6 +13,6 @@ public class CategorySDto {
     private Long id;
     private String CategorySName;
 
-    private List<MenuEntity> menuEntityList = new ArrayList<>();
-    private CategoryLEntity categoryLEntity;
+//    private List<MenuEntity> menuEntityList = new ArrayList<>();
+//    private CategoryLEntity categoryLEntity;
 }

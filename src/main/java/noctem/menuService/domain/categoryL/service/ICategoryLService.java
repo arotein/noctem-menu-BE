@@ -1,6 +1,9 @@
 package noctem.menuService.domain.categoryL.service;
 
 import noctem.menuService.domain.categoryL.dto.CategoryLDto;
+import noctem.menuService.domain.categoryL.dto.CategoryLResDto;
+
+import java.util.List;
 
 public interface ICategoryLService {
 
@@ -18,7 +21,7 @@ public interface ICategoryLService {
     CategoryLDto editCategoryL(Long categoryLId, CategoryLDto categoryLDto) throws Exception;
 
     // 3. 대 카테고리 전체 조회
-    Iterable<CategoryLDto> getAllCategoryL();
+    List<CategoryLDto> getAllCategoryL();
 
     // 4. 대 카테고리 단건 조회
     CategoryLDto getOneCategoryL(Long categoryLId) throws Exception;

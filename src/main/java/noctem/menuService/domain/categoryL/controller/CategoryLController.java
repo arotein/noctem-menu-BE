@@ -3,9 +3,11 @@ package noctem.menuService.domain.categoryL.controller;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import noctem.menuService.domain.categoryL.dto.CategoryLDto;
+import noctem.menuService.domain.categoryL.dto.CategoryLResDto;
 import noctem.menuService.domain.categoryL.dto.vo.RequestCategoryL;
 import noctem.menuService.domain.categoryL.dto.vo.ResponseCategoryL;
 import noctem.menuService.domain.categoryL.service.ICategoryLService;
+import noctem.menuService.global.common.CommonResponse;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.http.HttpStatus;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/menu-service/categoryL")
+@RequestMapping("/api/menu-service")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoryLController {
@@ -31,7 +33,7 @@ public class CategoryLController {
      */
 
     // 1. 대 카테고리 등록
-    @PostMapping
+    @PostMapping("/categoryL")
     public ResponseEntity<ResponseCategoryL> addCategoryL(@RequestBody RequestCategoryL requestCategoryL){
 
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -46,7 +48,7 @@ public class CategoryLController {
     }
 
     // 2. 대 카테고리 수정
-    @PutMapping("/{categoryLId}")
+    @PutMapping("/categoryL/{categoryLId}")
     public ResponseEntity<ResponseCategoryL> editCategoryL(@PathVariable Long categoryLId,
                                                            @RequestBody RequestCategoryL requestCategoryL) throws Exception {
 
@@ -62,24 +64,17 @@ public class CategoryLController {
     }
 
     // 3. 대 카테고리 전체 조회
-    @GetMapping
-    public ResponseEntity<List<ResponseCategoryL>> getAllCategoryL(){
-
-        ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
-        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
-
-        Iterable<CategoryLDto> categoryLDtoIterable = iCategoryLService.getAllCategoryL();
-        List<ResponseCategoryL> responseCategoryLList = new ArrayList<>();
-
-        categoryLDtoIterable.forEach(categoryLDto -> { // CategoryLDto -> ResponseCategoryL
-            responseCategoryLList.add(mapper.map(categoryLDto, ResponseCategoryL.class));
-        });
-
-        return ResponseEntity.status(HttpStatus.OK).body(responseCategoryLList);
+    @GetMapping("/categoryL")
+    public CommonResponse getAllCategoryL(){
+        return CommonResponse.builder()
+                .data(iCategoryLService.getAllCategoryL())
+                .build();
     }
 
-    // 4. 대 카테고리 단건 조회
-    @GetMapping("/{categoryLId}")
+    // 4. 대 카테고리 - 소 카테고리 리스트 조회
+
+    // 5. 대 카테고리 단건 조회
+    @GetMapping("/categoryL/{categoryLId}")
     public ResponseEntity<ResponseCategoryL> getOneCategoryL(@PathVariable Long categoryLId) throws Exception {
 
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
@@ -90,5 +85,4 @@ public class CategoryLController {
 
         return ResponseEntity.status(HttpStatus.OK).body(responseCategoryL);
     }
-
 }
