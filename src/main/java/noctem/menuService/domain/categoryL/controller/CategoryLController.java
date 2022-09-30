@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/menu-service")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoryLController {
 
     private final ICategoryLService iCategoryLService;
