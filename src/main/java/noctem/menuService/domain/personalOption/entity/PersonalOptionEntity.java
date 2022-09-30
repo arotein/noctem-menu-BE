@@ -1,6 +1,7 @@
 package noctem.menuService.domain.personalOption.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import noctem.menuService.domain.menu.entity.MenuEntity;
 import noctem.menuService.global.BaseEntity;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "personaloption")
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class PersonalOptionEntity extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

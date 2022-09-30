@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import noctem.menuService.domain.categoryS.entity.CategorySEntity;
+import noctem.menuService.domain.nutrition.entity.NutritionEntity;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import noctem.menuService.global.BaseEntity;
 
@@ -31,4 +32,7 @@ public class MenuEntity extends BaseEntity {
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "categorys_id")
     private CategorySEntity categorySEntity;
+
+    @OneToOne
+    private NutritionEntity nutritionEntity;
 }

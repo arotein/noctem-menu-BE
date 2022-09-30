@@ -19,7 +19,7 @@ spring:
       mode: always
 
   config:
-    import: optional:configserver:http://${HOST_SERVER}:8888
+    import: optional:configserver:http://${CONFIG_SERVER}:8888
   profiles:
     active: ${PROFILE}
   cloud:
@@ -31,14 +31,12 @@ spring:
         enabled: true
       destination: config-topic
   kafka:
-    bootstrap-servers: http://${HOST_SERVER}:9092 # 카프카 클러스터 주소
+    bootstrap-servers: http://${KAFKA_SERVER}:9092 # 카프카 클러스터 주소
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://121.145.206.143:3306/menu?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-    username: root
-    password: noctem
-#    username: ${NOCTEM_DB_USERNAME}
-#    password: ${NOCTEM_DB_PASSWORD}
+    url: jdbc:mysql://${MYSQL_SERVER}:3306/menu?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: ${NOCTEM_DB_USERNAME}
+    password: ${NOCTEM_DB_PASSWORD}
   jpa:
     show-sql: 'true'
     properties:
@@ -58,7 +56,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://${HOST_SERVER}:8761/eureka
+      defaultZone: http://${EUREKA_SERVER}:8761/eureka
 
 management:
   endpoints:
@@ -79,9 +77,17 @@ global:
   value: local-menu
 
 logging:
+  charset:
+    console: UTF-8
+    file: UTF-8
   level:
-    org:
-      hibernate:
-        type:
-          descriptor:
-            sql: trace
+    root: info
+    org.hibernate.SQL: debug
+
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        type:
+#          descriptor:
+#            sql: trace
