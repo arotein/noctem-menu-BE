@@ -2,6 +2,7 @@ package noctem.menuService.domain.menu.controller;
 
 import lombok.RequiredArgsConstructor;
 import noctem.menuService.domain.menu.dto.MenuDto;
+import noctem.menuService.domain.menu.dto.MenuListResDto;
 import noctem.menuService.domain.menu.dto.vo.RequestMenu;
 import noctem.menuService.domain.menu.dto.vo.ResponseMenu;
 import noctem.menuService.domain.menu.service.IMenuService;
@@ -105,8 +106,12 @@ public class MenuController {
     // 6. 소카테고리-메뉴 조회
     @GetMapping("/{categorySId}/menu")
     public CommonResponse getMenuList(@PathVariable Long categorySId) {
+
+        List<MenuListResDto> menuList = iMenuService.getMenuList(categorySId);
+        menuList.forEach(e -> e.setIndex(menuList.indexOf(e)+1));
+
         return CommonResponse.builder()
-                .data(iMenuService.getMenuList(categorySId))
+                .data(menuList)
                 .build();
     }
 }

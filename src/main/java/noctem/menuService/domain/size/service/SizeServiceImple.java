@@ -90,7 +90,7 @@ public class SizeServiceImple implements ISizeService{
         List<SizeResDto> sizeDtoList = new ArrayList<>(); // 비어 있는 sizeDto 리스트 선언
 
         sizeEntityList.forEach(sizeEntity -> {
-            if (sizeEntity.getIsDeleted() == false)
+            if (!sizeEntity.getIsDeleted())
                 sizeDtoList.add(new ModelMapper().map(sizeEntity, SizeResDto.class));
         });
 
@@ -105,7 +105,7 @@ public class SizeServiceImple implements ISizeService{
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
 
-        if (sizeEntity.isPresent() && sizeEntity.get().getIsDeleted() == false) { // 논리삭제가 false인 것
+        if (sizeEntity.isPresent() && !sizeEntity.get().getIsDeleted()) { // 논리삭제가 false인 것
             SizeResDto sizeDto = mapper.map(sizeEntity, SizeResDto.class); // SizeEntity -> SizeDto
             return sizeDto;
         }
@@ -119,7 +119,7 @@ public class SizeServiceImple implements ISizeService{
         List<SizeEntity> sizeByTemp = iSizeRepository.findSizeListByTemp(temperatureId);
 
         return sizeByTemp.stream().map(sizeEntity ->
-            new SizeByTempResDto(sizeEntity.getSize(), sizeEntity.getExtraCost()))
+            new SizeByTempResDto(sizeEntity.getId(), sizeEntity.getSize(), sizeEntity.getExtraCost()))
                 .collect(Collectors.toList());
     }
 }

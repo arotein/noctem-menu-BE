@@ -127,7 +127,7 @@ public class CategorySServiceImple implements ICategorySService {
         List<CategorySEntity> categorySListByCategoryL = iCategorySRepository.findCategorySListByCategoryL(categoryLId);
 
         return categorySListByCategoryL.stream().map(e ->
-            new CategorySResDto(e.getCategorySName(), e.getCategorySImg()))
+            new CategorySResDto(e.getId(), e.getCategorySName(), e.getCategorySImg()))
                 .collect(Collectors.toList());
     }
 }

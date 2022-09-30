@@ -77,9 +77,9 @@ global:
   value: local-menu
 
 logging:
-  charset:
-    console: UTF-8
-    file: UTF-8
+#  charset:
+#    console: UTF-8
+#    file: UTF-8
   level:
     root: info
     org.hibernate.SQL: debug

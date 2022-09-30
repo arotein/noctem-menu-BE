@@ -131,7 +131,7 @@ public class TemperatureServiceImple implements ITemperatureService{
 //                .collect(Collectors.toList());
 
         return temperatureEntityList.stream().map(e ->
-                new TemperatureListResDto(e.getTemperature()))
+                new TemperatureListResDto(e.getId(), e.getTemperature()))
                 .collect(Collectors.toList());
     }
 }
