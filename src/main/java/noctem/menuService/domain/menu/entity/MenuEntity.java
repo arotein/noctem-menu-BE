@@ -20,6 +20,7 @@ public class MenuEntity extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
     private String allergy;
     private Integer price;
     private Boolean isSoldOut = false;

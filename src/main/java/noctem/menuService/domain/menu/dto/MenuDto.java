@@ -12,6 +12,7 @@ import java.util.List;
 public class MenuDto {
 
     private Long id;
+    private String name;
     private String allergy;
     private Integer price;
     private boolean isSoldOut;

@@ -1,169 +1,317 @@
 -- 대 카테고리
-insert menu.categoryl
-values(1, now(), 0, now(), '음료');
-insert menu.categoryl
-values(2, now(), 0, now(), '푸드');
+insert menu.categoryl values(1, now(), 0, now(), '음료');
+insert menu.categoryl values(2, now(), 0, now(), '푸드');
 
 -- 소 카테고리
-    -- 음료
-insert menu.categorys
-    values(1, now(), 0, now(), '이미지', 'NEW', 1);
-insert menu.categorys
-    values(2, now(), 0, now(), '이미지', '추천', 1);
-insert menu.categorys
-    values(3, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9200000003763]_20220803131322551.jpg',
-    '리프레셔', 1);
-insert menu.categorys
-    values(4, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745467.jpg',
-    '콜드 브루', 1);
-insert menu.categorys
-    values(5, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002953]_20210427132718157.jpg',
-    '블론드', 1);
-insert menu.categorys
-    values(6, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg',
-    '에스프레소', 1);
-insert menu.categorys
-    values(7, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[2]_20210430111934117.jpg',
-    '디카페인 커피', 1);
-insert menu.categorys
-    values(8, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002760]_20210415133558068.jpg',
-    '프라푸치노', 1);
-insert menu.categorys
-    values(9, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[167004]_20210419130801597.jpg',
-    '블렌디드', 1);
-insert menu.categorys
-    values(10, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[107025]_20210419104756955.jpg',
-    '피지오', 1);
-insert menu.categorys
-    values(11, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2022/09/[9200000004306]_20220902105252734.jpg',
-    '티바나', 1);
-insert menu.categorys
-    values(12, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[106509]_20210430111852870.jpg',
-    '브루드 커피', 1);
-insert menu.categorys
-    values(13, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[72]_20210415140949967.jpg',
-    '기타', 1);
-insert menu.categorys
-    values(14, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2022/09/[9300000004347]_20220921130952276.jpg',
-    '병음료', 1);
-
-    -- 푸드
-insert menu.categorys
-    values(15, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/03/[9300000003334]_20210310092057351.jpg',
-    '브레드', 2);
-insert menu.categorys
-    values(16, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9300000001179]_20210421164934656.jpg',
-    '케이크', 2);
-insert menu.categorys
-    values(17, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9300000000036]_20210421133443711.jpg',
-    '샌드위치 & 샐러드', 2);
-insert menu.categorys
-    values(18, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9900000001200]_20220407090142827.jpg',
-    '따뜻한 푸드', 2);
-insert menu.categorys
-    values(19, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5110009051]_20210422111651003.jpg',
-    '과일 & 요거트', 2);
-insert menu.categorys
-    values(20, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5650003319]_20210421133114995.jpg',
-    '스낵 & 미니 디저트', 2);
-insert menu.categorys
-    values(21, now(), 0, now(), 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5110009050]_20210422110047018.jpg',
-    '아이스크림', 2);
-
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (1,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2022/09/[9200000004304]_20220902104522874.jpg','NEW',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (2,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg','추천',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (3,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9200000003763]_20220803131322551.jpg','리프레셔',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (4,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745467.jpg','콜드 브루',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (5,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002953]_20210427132718157.jpg','블론드',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (6,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg','에스프레소',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (7,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[2]_20210430111934117.jpg','디카페인 커피',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (8,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002760]_20210415133558068.jpg','프라푸치노',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (9,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[167004]_20210419130801597.jpg','블렌디드',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (10,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[107025]_20210419104756955.jpg','피지오',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (11,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2022/09/[9200000004306]_20220902105252734.jpg','티바나',1);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (12,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9300000004311]_20220819155243857.jpg','NEW',2);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (13,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5110007192]_20210421153949029.jpg','추천',2);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (14,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/03/[9300000003334]_20210310092057351.jpg','브레드',2);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (15,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9300000001179]_20210421164934656.jpg','케이크&미니디저트',2);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (16,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9300000000036]_20210421133443711.jpg','샌드위치&샐러드',2);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (17,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9900000001200]_20220407090142827.jpg','따뜻한 푸드',2);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (18,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5110009051]_20210422111651003.jpg','과일&요거트',2);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (19,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5650003319]_20210421133114995.jpg','스낵',2);
+INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (20,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5110009050]_20210422110047018.jpg','아이스크림',2);
 
 -- 메뉴
-insert menu.menu
-    values(1, now(), 0, now(), '아메리카노', 0, 0, 4500, 1, null);
-insert menu.menu
-    values(2, now(), 0, now(), '카페라떼', 0, 0, 5000, 1, null);
-insert menu.menu
-    values(3, now(), 0, now(), '카푸치노', 0, 0, 5000, 1, null);
-insert menu.menu
-    values(4, now(), 0, now(), '카페모카', 0, 0, 5500, 1, null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (1,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'딸기 아사이 레모네이드 녹템 리프레셔',5900,3,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (2,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'핑크 드링크 위드 딸기 아사이 녹템 리프레셔',5900,3,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (3,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'콜드 브루 오트 라떼',5800,4,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (4,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'돌체 콜드 브루',6000,4,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (5,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'바닐라 크림 콜드 브루',5800,4,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (6,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'콜드 브루',4900,4,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (7,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'나이트로 바닐라 크림',6100,4,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (8,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'나이트로 콜드 브루',6800,4,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (9,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'블론드 바닐라 더블 샷 마키아또',5900,5,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (10,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'블론드 녹템 돌체 라떼',5900,5,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (11,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'블론드 카페 라떼',5000,5,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (12,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'블론드 카페 아메리카노',4500,5,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (13,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'녹템 바닐라 라떼',6100,5,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (14,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'블랙 글레이즈드 라떼',6300,6,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (15,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'바닐라 플랫 화이트',5900,6,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (16,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'녹템 돌체 라떼',5900,6,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (17,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'카페 모카',5500,6,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (18,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'카페 아메리카노',4500,6,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (19,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'카페 라떼',5000,6,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (20,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'카푸치노',5000,6,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (21,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'카라멜 마키아또',5900,6,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (22,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'에스프레소',4000,6,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (23,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'디카페인 녹템 돌체 라떼',6200,7,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (24,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'디카페인 카라멜 마키아또',6200,7,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (25,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'디카페인 카페 라떼',5300,7,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (26,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'디카페인 카페 아메리카노',4800,7,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (27,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'자바 칩 프라푸치노',6300,8,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (28,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'모카 프라푸치노',5900,8,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (29,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'카라멜 프라푸치노',5900,8,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (30,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'에스프레소 프라푸치노',5500,8,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (31,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'민트 초콜릿 칩 블렌디드',6300,9,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (32,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'딸기 딜라이트 요거트 블렌디드',6300,9,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (33,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'망고 바나나 블렌디드',6300,9,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (34,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'유자 패션 피지오',5900,10,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (35,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'쿨 라임 피지오',5900,10,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (36,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'블랙 티 레모네이드 피지오',5400,10,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (37,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'패션 탱고 티 레모네이드 피지오',5400,10,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (38,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'그린 애플 캐모마일 티',6100,11,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (39,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'유자 민트 티',5900,11,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (40,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'자몽 허니 블랙 티',5700,11,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (41,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'얼 그레이 티',4500,11,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (42,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'히비스커스 블렌드 티',4500,11,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (43,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'민트 블렌드 티',4500,11,null);
+INSERT INTO menu.menu (id,created_at,is_deleted,updated_at,allergy,is_eos,is_sold_out,name,price,categorys_id,nutrition_entity_id) VALUES (44,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','없음',0,0,'캐모마일 블렌드 티',4500,11,null);
 
 -- 온도
-insert menu.temperature
-    values(1, now(), 0, now(), '진한 에스프레소와 뜨거운 물을 섞다.', 'Hot Americano', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[94]_20210430103337157.jpg',
-    '따뜻한 아메리카노', 'hot', 1);
-insert menu.temperature
-    values(2, now(), 0, now(), '진한 에스프레소와 시원한 정수물과 얼음을 더하다.', 'Ice Americano', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937947.jpg',
-    '아이스 아메리카노', 'ice', 1);
-insert menu.temperature
-    values(3, now(), 0, now(), '진한 에스프레소와 뜨거운 우유를 섞다.', 'Hot Caffe Latte', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[41]_20210415133833879.jpg',
-    '따뜻한 카페라떼', 'hot', 2);
-insert menu.temperature
-    values(4, now(), 0, now(), '진한 에스프레소와 시원한 우유를 섞다.', 'Ice Caffe Latte', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110569]_20210415143035989.jpg',
-    '아이스 카페라떼', 'ice', 2);
-insert menu.temperature
-    values(5, now(), 0, now(), '진한 에스프레소와 시원한 우유와 우유거품', 'Ice Cappuccino', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110601]_20210415143400773.jpg',
-    '아이스 카푸치노', 'ice', 3);
-insert menu.temperature
-    values(6, now(), 0, now(), '진한 에스프레소와 따뜻한 우유와 우유거품', 'Hot Cappuccino', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[38]_20210415154821846.jpg',
-    '따뜻한 카푸치노', 'hot', 3);
-insert menu.temperature
-    values(7, now(), 0, now(), '진한 초콜릿 모카 시럽과 에스프레소, 따뜻한 우유', 'Hot Caffe Mocha', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[46]_20210415134438165.jpg',
-    '따뜻한 카페모카', 'hot', 4);
-insert menu.temperature
-    values(8, now(), 0, now(), '진한 초콜릿 모카 시럽과 에스프레소, 시원한우유', 'Ice Caffe Mocha', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110566]_20210415134334280.jpg',
-    '아이스 카페모카', 'ice', 4);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (1,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','딸기, 아사이베리 주스와 레모네이드가 달콤 상큼하게 조화된 맛에 가볍게 에너지 부스팅을 할 수 있는 리프레셔 음료','Strawberry Acai with Lemonade Noctem Refreshers','https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9200000003763]_20220803131322551.jpg','딸기 아사이 레모네이드 녹템 리프레셔','ice',1);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (2,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','딸기, 아사이베리 주스와 코코넛 밀크가 달콤하고 부드럽게 조화된 맛에 가볍게 에너지 부스팅을 할 수 있는 리프레셔 음료','Pink Drink with Strawberry Acai Noctem Refreshers','https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9200000003766]_20220803130957907.jpg','핑크 드링크 위드 딸기 아사이 녹템 리프레셔','ice',2);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (3,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','콜드 브루의 풍미와 깔끔한 오트 밀크가 어우러진 달콤 고소한 라떼','Cold Brew with Oat Milk','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000003285]_20210416154437069.jpg','콜드 브루 오트 라떼','ice',3);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (4,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','무더운 여름철, 동남아 휴가지에서 즐기는 커피를 떠오르게 하는 음료','Dolce Cold Brew','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002081]_20210415133656839.jpg','돌체 콜드 브루','ice',4);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (5,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','콜드 브루에 더해진 바닐라 크림으로 깔끔하면서 달콤한 콜드 브루를 새롭게 즐길 수 있는 음료','Vanilla Cream Cold Brew','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000487]_20210430112319040.jpg','바닐라 크림 콜드 브루','ice',5);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (6,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','녹템 바리스타의 정성으로 탄생한 콜드 브루','Cold Brew','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000038]_20210430113202458.jpg','콜드 브루 오트 라떼','ice',6);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (7,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','부드러운 목넘김의 나이트로 커피와 바닐라 크림의 매력을 한번에 느껴보세요!','Nitro Vanilla Cream','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745467.jpg','나이트로 바닐라 크림','ice',7);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (8,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','나이트로 커피 정통의 캐스케이딩과 부드러운 콜드 크레마!','Nitro Cold Brew','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000479]_20210426091843897.jpg','나이트로 콜드 브루','ice',8);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (9,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','블론드 에스프레소 2샷에 흑당 시럽과 바닐라 크림이 부드럽고 달콤하게 어우러진 마키아또 타입의 음료를 즐겨 보세요!','Iced Blonde Vanilla Double Shot Macchiato','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002953]_20210427132718157.jpg','아이스 블론드 바닐라 더블 샷 마키아또','hot',9);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (10,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','블론드 에스프레소 2샷에 흑당 시럽과 바닐라 크림이 부드럽고 달콤하게 어우러진 마키아또 타입의 음료를 즐겨 보세요!','Blonde Vanilla Double Shot Macchiato','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002950]_20210426150654756.jpg','블론드 바닐라 더블 샷 마키아또','ice',9);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (11,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','밝고 경쾌한 블론드 에스프레소와 무지방 우유, 돌체 시럽이 달콤하게 어우러진 아이스 블론드 녹템 돌체 라떼를 즐겨보세요!','Iced Blonde Noctem Dolce Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002953]_20210427132718157.jpg','아이스 블론드 녹템 돌체 라떼','ice',10);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (12,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','밝고 경쾌한 블론드 에스프레소와 무지방 우유, 돌체 시럽이 달콤하게 어우러진 아이스 블론드 녹템 돌체 라떼를 즐겨보세요!','Blonde Noctem Dolce Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002950]_20210426150654756.jpg','블론드 녹템 돌체 라떼','hot',10);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (13,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','밝고 경쾌한 블론드 에스프레소와 우유가 부드럽게 어우러진 아이스 블론드 카페 라떼를 즐겨보세요!','Iced Blonde Caffe Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002953]_20210427132718157.jpg','아이스 블론드 카페 라떼','ice',11);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (14,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','밝고 경쾌한 블론드 에스프레소와 우유가 부드럽게 어우러진 아이스 블론드 카페 라떼를 즐겨보세요!','Blonde Caffe Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002950]_20210426150654756.jpg','블론드 카페 라떼','hot',11);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (15,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','블론드 에스프레소의 밝고 경쾌한 풍미를 아이스 블론드 카페 아메리카노로 즐겨보세요!','Iced Blonde Caffe Americano','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg','아이스 블론드 카페 아메리카노','ice',12);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (16,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','블론드 에스프레소의 밝고 경쾌한 풍미를 블론드 카페 아메리카노로 즐겨보세요!','Blonde Caffe Americano','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[94]_20210430103337006.jpg','블론드 카페 아메리카노','hot',12);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (17,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','(Grande Only) 녹템에서 가장 사랑 받는 바닐라 음료를 블론드 에스프레소로 더욱 더 부드럽게 즐겨보세요.','Iced Noctem Vanilla Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/02/[9200000001941]_20210225094346653.jpg','아이스 녹템 바닐라 라떼','ice',13);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (18,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','(Grande Only) 녹템에서 가장 사랑 받는 바닐라 음료를 블론드 에스프레소로 더욱 더 부드럽게 즐겨보세요.','Noctem Vanilla Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/02/[9200000001939]_20210225094313315.jpg','녹템 바닐라 라떼','hot',13);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (19,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 커피와 매력적인 글레이즈드 크림, 치즈 풍미의 아인슈페너 음료','Iced Black Glazed Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9200000002262]_20220819134241498.jpg','아이스 블랙 글레이즈드 라떼','ice',14);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (20,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 커피와 매력적인 글레이즈드 크림, 치즈 풍미의 아인슈페너 음료','Black Glazed Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9200000002259]_20220819134201192.jpg','블랙 글레이즈드 라떼','hot',14);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (21,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','바닐라 플랫 화이트는 진하고 고소한 리스트레토 샷과 바닐라 시럽 그리고 스팀 밀크로 즐기는 진한 커피 라떼입니다.','Vanilla Flat White','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002406]_20210415135507733.jpg','바닐라 플랫 화이트','hot',15);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (22,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','더욱 깊은 커피의 맛과 향에 깔끔한 무지방 우유와 부드러운 돌체 시럽이 들어간 음료로 달콤하고 진한 커피 라떼','Iced Noctem Dolce Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[128695]_20210426092031969.jpg','아이스 녹템 돌체 라떼','ice',16);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (23,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','더욱 깊은 커피의 맛과 향에 깔끔한 무지방 우유와 부드러운 돌체 시럽이 들어간 음료로 달콤하고 진한 커피 라떼','Noctem Dolce Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[128692]_20210426091933665.jpg','녹템 돌체 라떼','hot',16);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (24,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 초콜릿 모카 시럽과 에스프레소, 따뜻한 우유','Hot Caffe Mocha','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[46]_20210415134438165.jpg','따뜻한 카페모카','hot',17);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (25,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 초콜릿 모카 시럽과 에스프레소, 시원한우유','Ice Caffe Mocha','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110566]_20210415134334280.jpg','아이스 카페모카','ice',17);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (26,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 에스프레소와 뜨거운 물을 섞다.','Hot Americano','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[94]_20210430103337157.jpg','따뜻한 아메리카노','hot',18);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (27,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 에스프레소와 시원한 정수물과 얼음을 더하다.','Ice Americano','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937947.jpg','아이스 아메리카노','ice',18);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (28,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 에스프레소와 뜨거운 우유를 섞다.','Hot Caffe Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[41]_20210415133833879.jpg','따뜻한 카페라떼','hot',19);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (29,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 에스프레소와 시원한 우유를 섞다.','Ice Caffe Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110569]_20210415143035989.jpg','아이스 카페라떼','ice',19);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (30,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 에스프레소와 시원한 우유와 우유거품','Ice Cappuccino','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110601]_20210415143400773.jpg','아이스 카푸치노','ice',20);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (31,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진한 에스프레소와 따뜻한 우유와 우유거품','Hot Cappuccino','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[38]_20210415154821846.jpg','따뜻한 카푸치노','hot',20);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (32,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','향긋한 바닐라 시럽과 시원한 우유와 얼음을 넣고 점을 찍듯이 에스프레소를 부은 후 벌집 모양으로 카라멜 드리즐을 올린 달콤한 커피 음료','Iced Caramel Macchiato','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110582]_20210415142706078.jpg','아이스 카라멜 마키아또','ice',21);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (33,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','향긋한 바닐라 시럽과 따뜻한 우유와 얼음을 넣고 점을 찍듯이 에스프레소를 부은 후 벌집 모양으로 카라멜 드리즐을 올린 달콤한 커피 음료','Caramel Macchiato','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[126197]_20210415154609863.jpg','카라멜 마키아또','hot',21);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (34,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','향기로운 크레마 층과 바디 층, 하트 층으로 이루어져 있으며, 입안 가득히 커피와 달콤한 카라멜 향이 느껴지는 커피 음료','Espresso','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[20]_20210415144112678.jpg','에스프레소','hot',22);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (35,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','깊고 진한 에스프레소 샷과 깔끔한 무지방 우유, 달콤한 돌체 시럽이 부드럽게 어우러진 아이스 녹템 돌체 라떼를 부담을 줄인 디카페인으로 즐겨보세요!','Iced DECAF Noctem Dolce Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[128695]_20210426092031969.jpg','아이스 디카페인 녹템 돌체 라떼','ice',23);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (36,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','깊고 진한 에스프레소 샷과 깔끔한 무지방 우유, 달콤한 돌체 시럽이 부드럽게 어우러진 아이스 녹템 돌체 라떼를 부담을 줄인 디카페인으로 즐겨보세요!','DECAF Noctem Dolce Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[128692]_20210426091933665.jpg','디카페인 녹템 돌체 라떼','hot',23);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (37,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','바닐라 시럽과 우유, 그리고 진한 에스프레소 샷과 달콤한 카라멜 드리즐이 어우러진 아이스 디카페인 카라멜 마키아또를 즐겨보세요!','Iced DECAF Caramel Macchiato','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110582]_20210415142706078.jpg','아이스 디카페인 카라멜 마키아또','ice',24);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (38,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','바닐라 시럽과 우유, 그리고 진한 에스프레소 샷과 달콤한 카라멜 드리즐이 어우러진 아이스 디카페인 카라멜 마키아또를 즐겨보세요!','DECAF Caramel Macchiato','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[126197]_20210415154609863.jpg','디카페인 카라멜 마키아또','hot',24);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (39,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','깊고 진한 에스프레소 샷과 우유가 어우러진 부드러운 아이스 디카페인 카페 라떼를 즐겨보세요!','Iced DECAF Caffe Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110569]_20210415143035989.jpg','아이스 디카페인 카페 라떼','ice',25);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (40,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','깊고 진한 에스프레소 샷과 따뜻한 우유가 어우러진 부드러운 디카페인 카페 라떼를 즐겨보세요!','DECAF Caffe Latte','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[41]_20210415133833725.jpg','디카페인 카페 라떼','hot',25);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (41,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','깊고 강렬한 에스프레소의 풍미를 아이스 디카페인 카페 아메리카노로 즐겨보세요!','Iced DECAF Caffe Americano','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg','아이스 디카페인 카페 아메리카노','ice',26);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (42,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','깊고 강렬한 에스프레소의 풍미를 디카페인 카페 아메리카노로 즐겨보세요!','DECAF Caffe Americano','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[94]_20210430103337006.jpg','디카페인 카페 아메리카노','hot',26);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (43,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','커피, 모카 소스, 진한 초콜릿 칩이 입안 가득 느껴지는 프라푸치노','Java Chip Frappuccino','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[168016]_20210415154152122.jpg','자바 칩 프라푸치노','ice',27);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (44,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','초콜릿과 커피가 어우러진 프라푸치노','Mocha Frappuccino','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[168004]_20210415134634723.jpg','모카 프라푸치노','ice',28);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (45,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','카라멜과 커피가 어우러진 프라푸치노','Caramel Frappuccino','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[168010]_20210415154711116.jpg','카라멜 프라푸치노','ice',29);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (46,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','에스프레소 샷의 강렬함과 약간의 단맛이 어우러진 프라푸치노','Espresso Frappuccino','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[168007]_20210415144337428.jpg','에스프레소 프라푸치노','ice',30);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (47,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','입 안 가득 상쾌한 민트 초콜릿과 부드러운 돌체 소스가 어우러진 초콜릿 블렌디드','Mint Chocolate Chip Blended','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000003443]_20210416154107695.jpg','민트 초콜릿 칩 블렌디드','ice',31);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (48,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','유산균이 살아있는 리얼 요거트와 풍성한 딸기 과육이 더욱 상큼하게 어우러진 과일 요거트 블렌디드','Strawberry Delight Yogurt Blended','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000003276]_20210416154001403.jpg','딸기 딜라이트 요거트 블렌디드','ice',32);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (49,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','(Grande Only) 인기 음료인 망고 패션후르츠 블렌디드에 신선한 바나나 1개가 통째로 들어간 달콤한 프라푸치노','Mango Banana Blended','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[169001]_20210419130701792.jpg','망고 바나나 블렌디드','ice',33);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (50,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','상콤달콤 고흥 유자와 녹템 시그니처 패션 탱고 티에 한 잔 한 잔 탄산을 넣어 제조하는 피지오 음료','Yuja Passion Noctem Fizzio','https://image.istarbucks.co.kr/upload/store/skuimg/2022/05/[9200000004121]_20220517102911610.jpg','유자 패션 피지오','ice',34);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (51,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','그린 빈 추출액이 들어간 라임 베이스에 건조된 라임 슬라이스를 넣고 스파클링한 시원하고 청량감 있는 음료입니다. (카페인이 함유된 탄산음료입니다.)','Cool Lime Noctem Fizzio','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[107051]_20210419112151972.jpg','쿨 라임 피지오','ice',35);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (52,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','진하게 우린 블랙 티와 상큼한 레모네이드를 더한 청량감 있는 음료입니다. 목 넘김이 좋은 가벼운 탄산이 첨가되어 깔끔하게 즐길 수 있습니다.','Black Tea Lemonade Noctem Fizzio','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[107025]_20210419104756955.jpg','블랙 티 레모네이드 피지오','ice',36);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (53,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','꽃 향기와 달콤하고 상큼한 시트러스 향을 탄산과 함께 더욱 풍부하게 느끼고 싶으시다면 패션 티 레모네이드 피지오를 선택해 보세요! 언제 찾아도 기분이 좋아지는 훌륭한 음료입니다.','Passion Tango Tea Lemonade Noctem Fizzio','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[107031]_20210419125349904.jpg','패션 탱고 티 레모네이드 피지오','ice',37);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (54,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','국내산 사과로 만든 베이스에 은은한 캐모마일 티로 향긋한 풍미를 즐길 수 있는 티 베리에이션 음료.','Green Apple Chamomile Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9200000004134]_20220819133555297.jpg','그린 애플 캐모마일 티','ice',38);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (55,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','달콤한 국내산 고흥 유자와 알싸하고 은은한 진저와 상쾌한 민트 티가 조화로운 유자 민트 티','Iced Yuja Mint Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9200000002959]_20220411155904911.jpg','아이스 유자 민트 티','ice',39);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (56,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','달콤한 국내산 고흥 유자와 알싸하고 은은한 진저와 상쾌한 민트 티가 조화로운 유자 민트 티','Yuja Mint Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9200000002956]_20220411155551915.jpg','유자 민트 티','hot',39);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (57,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','새콤한 자몽과 달콤한 꿀이 깊고 그윽한 풍미의 녹템 티바나 블랙 티의 조화','Grapefruit Honey Black Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000187]_20210419131229539.jpg','자몽 허니 블랙 티','hot',40);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (58,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','새콤한 자몽과 달콤한 꿀이 깊고 그윽한 풍미의 녹템 티바나 블랙 티의 조화','Iced Grapefruit Honey Black Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000190]_20210419131723532.jpg','아이스 자몽 허니 블랙 티','ice',40);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (59,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','꽃향 가득한 라벤더와 베르가못 향이 지한 홍차와 블렌딩된 향긋한 블랙 티','Iced Earl Grey Brewed Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[4004000000039]_20210415142055860.jpg','아이스 얼 그레이 티','ice',41);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (60,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','꽃향 가득한 라벤더와 베르가못 향이 지한 홍차와 블렌딩된 향긋한 블랙 티','Earl Grey Brewed Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[4004000000036]_20210415143933425.jpg','얼 그레이 티','hot',41);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (61,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','히비스커스, 사과, 파파야, 망고, 레몬그라스 등이 블렌딩된 상큼한 허브 티','Iced Hibiscus Blend Brewed Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[4004000000069]_20210415143811231.jpg','아이스 히비스커스 블렌드 티','ice',42);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (62,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','히비스커스, 사과, 파파야, 망고, 레몬그라스 등이 블렌딩된 상큼한 허브 티','Hibiscus Blend Brewed Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[4004000000066]_20210415155836395.jpg','히비스커스 블렌드 티','hot',42);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (63,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','스피어민트, 페퍼민트, 레몬머틀이 블렌딩된 상쾌한 허브 티','Iced Mint Blend Brewed Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[4004000000059]_20210415141656038.jpg','아이스 민트 블렌드 티','ice',43);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (64,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','스피어민트, 페퍼민트, 레몬머틀이 블렌딩된 상쾌한 허브 티','Mint Blend Brewed Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[4004000000056]_20210415135215632.jpg','민트 블렌드 티','hot',43);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (65,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','캐모마일과 레몬 그라스, 레몬밤, 히비스커스 등 블렌딩되어 은은하고 차분한 향이 기분을 좋게하는 허브 티','Iced Chamomile Blend Brewed Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[4004000000079]_20210415143641139.jpg','아이스 캐모마일 블렌드 티','ice',44);
+INSERT INTO menu.temperature (id,created_at,is_deleted,updated_at,description,menu_eng_name,menu_img,menu_name,temperature,menu_id) VALUES (66,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18','캐모마일과 레몬 그라스, 레몬밤, 히비스커스 등 블렌딩되어 은은하고 차분한 향이 기분을 좋게하는 허브 티','Chamomile Blend Brewed Tea','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[4004000000076]_20210415154920731.jpg','캐모마일 블렌드 티','hot',44);
 
 -- 사이즈
-insert menu.size
-    values(1, now(), 0, now(), -500, 'Short', 1);
-insert menu.size
-    values(2, now(), 0, now(), 0, 'Tall', 1);
-insert menu.size
-    values(3, now(), 0, now(), 500, 'Grande', 1);
-insert menu.size
-    values(4, now(), 0, now(), 1000, 'Venti', 1);
-insert menu.size
-    values(5, now(), 0, now(), 0, 'Tall', 2);
-insert menu.size
-    values(6, now(), 0, now(), 500, 'Grande', 2);
-insert menu.size
-    values(7, now(), 0, now(), 1000, 'Venti', 2);
-insert menu.size
-    values(8, now(), 0, now(), -500, 'Short', 3);
-insert menu.size
-    values(9, now(), 0, now(), 0, 'Tall', 3);
-insert menu.size
-    values(10, now(), 0, now(), 500, 'Grande', 3);
-insert menu.size
-    values(11, now(), 0, now(), 1000, 'Venti', 3);
-insert menu.size
-    values(12, now(), 0, now(), 0, 'Tall', 4);
-insert menu.size
-    values(13, now(), 0, now(), 500, 'Grande', 4);
-insert menu.size
-    values(14, now(), 0, now(), 1000, 'Venti', 4);
-insert menu.size
-    values(15, now(), 0, now(), 0, 'Tall', 5);
-insert menu.size
-    values(16, now(), 0, now(), 500, 'Grande', 5);
-insert menu.size
-    values(17, now(), 0, now(), 1000, 'Venti', 5);
-insert menu.size
-    values(18, now(), 0, now(), -500, 'Short', 6);
-insert menu.size
-    values(19, now(), 0, now(), 0, 'Tall', 6);
-insert menu.size
-    values(20, now(), 0, now(), 500, 'Grande', 6);
-insert menu.size
-    values(21, now(), 0, now(), 1000, 'Venti', 6);
-insert menu.size
-    values(22, now(), 0, now(), -500, 'Short', 7);
-insert menu.size
-    values(23, now(), 0, now(), 0, 'Tall', 7);
-insert menu.size
-    values(24, now(), 0, now(), 500, 'Grande', 7);
-insert menu.size
-    values(25, now(), 0, now(), 1000, 'Venti', 7);
-insert menu.size
-    values(26, now(), 0, now(), 0, 'Tall', 8);
-insert menu.size
-    values(27, now(), 0, now(), 500, 'Grande', 8);
-insert menu.size
-    values(28, now(), 0, now(), 1000, 'Venti', 8);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (1,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',1);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (2,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',1);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (3,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',1);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (4,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',2);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (5,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',2);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (6,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',2);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (7,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',3);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (8,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',3);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (9,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',3);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (10,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',4);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (11,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',4);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (12,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',4);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (13,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',5);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (14,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',5);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (15,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',5);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (16,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',6);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (17,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',6);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (18,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',6);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (19,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',7);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (20,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',7);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (21,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',7);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (22,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',8);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (23,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',8);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (24,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',8);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (25,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',9);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (26,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',9);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (27,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',9);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (28,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',10);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (29,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',10);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (30,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',10);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (31,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',11);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (32,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',11);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (33,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',11);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (34,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',12);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (35,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',12);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (36,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',12);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (37,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',13);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (38,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',13);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (39,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',13);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (40,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',14);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (41,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',14);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (42,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',14);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (43,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',14);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (44,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',15);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (45,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',15);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (46,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',15);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (47,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',16);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (48,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',16);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (49,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',16);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (50,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',16);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (51,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Grande',17);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (52,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Grande',18);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (53,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',19);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (54,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',19);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (55,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',19);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (56,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',20);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (57,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',20);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (58,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',20);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (59,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',21);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (60,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',21);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (61,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',22);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (62,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',22);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (63,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',22);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (64,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',23);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (65,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',23);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (66,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',23);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (67,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',23);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (68,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',24);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (69,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',24);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (70,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',24);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (71,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',24);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (72,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',25);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (73,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',25);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (74,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',25);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (75,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',26);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (76,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',26);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (77,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',26);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (78,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',26);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (79,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',27);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (80,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',27);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (81,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',27);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (82,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',28);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (83,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',28);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (84,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',28);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (85,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',28);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (86,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',29);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (87,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',29);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (88,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',29);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (89,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',30);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (90,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',30);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (91,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',30);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (92,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',31);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (93,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',31);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (94,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',31);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (95,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',31);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (96,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',32);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (97,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',32);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (98,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',32);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (99,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',33);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (100,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',33);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (101,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',33);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (102,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',33);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (103,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Solo',34);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (104,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Doppio',34);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (105,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',35);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (106,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',35);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (107,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',35);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (108,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',36);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (109,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',36);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (110,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',36);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (111,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',36);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (112,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',37);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (113,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',37);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (114,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',37);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (115,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',38);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (116,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',38);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (117,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',38);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (118,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',38);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (119,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',39);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (120,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',39);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (121,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',39);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (122,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',40);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (123,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',40);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (124,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',40);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (125,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',40);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (126,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',41);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (127,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',41);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (128,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',41);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (129,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',-500,'Short',42);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (130,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',42);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (131,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',42);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (132,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',42);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (133,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',43);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (134,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',43);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (135,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',43);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (136,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',44);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (137,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',44);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (138,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',44);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (139,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',45);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (140,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',45);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (141,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',45);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (142,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',46);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (143,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',46);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (144,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',46);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (145,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',47);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (146,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',47);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (147,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',47);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (148,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',48);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (149,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',48);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (150,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',48);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (151,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',49);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (152,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',50);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (153,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',50);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (154,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',50);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (155,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',51);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (156,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',51);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (157,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',51);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (158,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',52);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (159,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',52);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (160,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',52);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (161,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',53);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (162,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',53);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (163,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',53);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (164,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',54);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (165,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',54);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (166,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',54);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (167,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',55);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (168,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',55);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (169,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',55);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (170,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',0,'Tall',56);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (171,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',500,'Grande',56);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,extra_cost,size,temperature_id) VALUES (172,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',1000,'Venti',56);
+
 
 -- 퍼스널 옵션
 insert menu.personaloption
@@ -192,16 +340,94 @@ insert menu.personaloption
     values(12, now(), 0, now(), "없음", 0, 0, "우유 공간 남겨주세요", "기타", 1);
 
 -- 영양 정보
-insert menu.nutrition
-    values(1, now(), 0, now(), 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1);
-insert menu.nutrition
-    values(2, now(), 0, now(), 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2);
-insert menu.nutrition
-    values(3, now(), 0, now(), 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 3);
-insert menu.nutrition
-    values(4, now(), 0, now(), 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 4);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (1,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,1);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (2,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,2);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (3,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,3);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (4,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,4);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (5,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,5);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (6,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,6);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (7,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,7);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (8,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,8);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (9,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,9);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (10,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,10);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (11,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,11);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (12,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,12);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (13,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,13);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (14,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,14);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (15,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,15);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (16,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,16);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (17,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,17);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (18,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,18);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (19,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,19);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (20,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,20);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (21,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,21);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (22,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,22);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (23,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,23);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (24,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,24);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (25,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,25);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (26,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,26);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (27,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,27);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (28,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,28);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (29,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,29);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (30,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,30);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (31,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,31);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (32,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,32);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (33,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,33);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (34,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,34);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (35,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,35);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (36,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,36);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (37,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,37);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (38,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,38);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (39,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,39);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (40,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,40);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (41,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,41);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (42,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,42);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (43,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,43);
+INSERT INTO menu.nutrition (id,created_at,is_deleted,updated_at,caffeine,carbohydrates,cholesterol,fat,kcal,protein,saturated_fat,sodium,sugars,trans_fat,menu_entity_id) VALUES (44,'2022-10-04 14:20:48',0,'2022-10-04 14:20:48',1,2,3,4,5,6,7,8,9,10,44);
 
+-- 메뉴 & 영양정보 연결
 UPDATE menu.menu SET nutrition_entity_id = 1 WHERE id = 1;
 UPDATE menu.menu SET nutrition_entity_id = 2 WHERE id = 2;
 UPDATE menu.menu SET nutrition_entity_id = 3 WHERE id = 3;
 UPDATE menu.menu SET nutrition_entity_id = 4 WHERE id = 4;
+UPDATE menu.menu SET nutrition_entity_id = 5 WHERE id = 5;
+UPDATE menu.menu SET nutrition_entity_id = 6 WHERE id = 6;
+UPDATE menu.menu SET nutrition_entity_id = 7 WHERE id = 7;
+UPDATE menu.menu SET nutrition_entity_id = 8 WHERE id = 8;
+UPDATE menu.menu SET nutrition_entity_id = 9 WHERE id = 9;
+UPDATE menu.menu SET nutrition_entity_id = 10 WHERE id = 10;
+UPDATE menu.menu SET nutrition_entity_id = 11 WHERE id = 11;
+UPDATE menu.menu SET nutrition_entity_id = 12 WHERE id = 12;
+UPDATE menu.menu SET nutrition_entity_id = 13 WHERE id = 13;
+UPDATE menu.menu SET nutrition_entity_id = 14 WHERE id = 14;
+UPDATE menu.menu SET nutrition_entity_id = 15 WHERE id = 15;
+UPDATE menu.menu SET nutrition_entity_id = 16 WHERE id = 16;
+UPDATE menu.menu SET nutrition_entity_id = 17 WHERE id = 17;
+UPDATE menu.menu SET nutrition_entity_id = 18 WHERE id = 18;
+UPDATE menu.menu SET nutrition_entity_id = 19 WHERE id = 19;
+UPDATE menu.menu SET nutrition_entity_id = 20 WHERE id = 20;
+UPDATE menu.menu SET nutrition_entity_id = 21 WHERE id = 21;
+UPDATE menu.menu SET nutrition_entity_id = 22 WHERE id = 22;
+UPDATE menu.menu SET nutrition_entity_id = 23 WHERE id = 23;
+UPDATE menu.menu SET nutrition_entity_id = 24 WHERE id = 24;
+UPDATE menu.menu SET nutrition_entity_id = 25 WHERE id = 25;
+UPDATE menu.menu SET nutrition_entity_id = 26 WHERE id = 26;
+UPDATE menu.menu SET nutrition_entity_id = 27 WHERE id = 27;
+UPDATE menu.menu SET nutrition_entity_id = 28 WHERE id = 28;
+UPDATE menu.menu SET nutrition_entity_id = 29 WHERE id = 29;
+UPDATE menu.menu SET nutrition_entity_id = 30 WHERE id = 30;
+UPDATE menu.menu SET nutrition_entity_id = 31 WHERE id = 31;
+UPDATE menu.menu SET nutrition_entity_id = 32 WHERE id = 32;
+UPDATE menu.menu SET nutrition_entity_id = 33 WHERE id = 33;
+UPDATE menu.menu SET nutrition_entity_id = 34 WHERE id = 34;
+UPDATE menu.menu SET nutrition_entity_id = 35 WHERE id = 35;
+UPDATE menu.menu SET nutrition_entity_id = 36 WHERE id = 36;
+UPDATE menu.menu SET nutrition_entity_id = 37 WHERE id = 37;
+UPDATE menu.menu SET nutrition_entity_id = 38 WHERE id = 38;
+UPDATE menu.menu SET nutrition_entity_id = 39 WHERE id = 39;
+UPDATE menu.menu SET nutrition_entity_id = 40 WHERE id = 40;
+UPDATE menu.menu SET nutrition_entity_id = 41 WHERE id = 41;
+UPDATE menu.menu SET nutrition_entity_id = 42 WHERE id = 42;
+UPDATE menu.menu SET nutrition_entity_id = 43 WHERE id = 43;
+UPDATE menu.menu SET nutrition_entity_id = 44 WHERE id = 44;
+
