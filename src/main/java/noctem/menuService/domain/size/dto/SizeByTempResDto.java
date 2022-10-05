@@ -6,10 +6,16 @@ import lombok.Data;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 
 @Data
-@AllArgsConstructor
 public class SizeByTempResDto {
 
+    private Integer index;
     private Long sizeId;
     private String size;
     private Integer extraCost;
+
+    public SizeByTempResDto(Long sizeId, String size, Integer extraCost) {
+        this.sizeId = sizeId;
+        this.size = size;
+        this.extraCost = extraCost;
+    }
 }

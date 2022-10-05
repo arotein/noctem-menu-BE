@@ -1,6 +1,7 @@
 package noctem.menuService.domain.temperature.controller;
 
 import lombok.RequiredArgsConstructor;
+import noctem.menuService.domain.categoryS.dto.CategorySResDto;
 import noctem.menuService.domain.temperature.dto.TemperatureDto;
 import noctem.menuService.domain.temperature.dto.TemperatureListResDto;
 import noctem.menuService.domain.temperature.dto.vo.RequestTemperature;
@@ -107,6 +108,7 @@ public class TemperatureController {
     @GetMapping("/{menuId}/temperature")
     public CommonResponse getTemperatureByMenuList(@PathVariable Long menuId){
         List<TemperatureListResDto> temperatureByMenu = iTemperatureService.getTemperatureByMenu(menuId);
+        temperatureByMenu.forEach(e -> e.setIndex(temperatureByMenu.indexOf(e)));
 
         return CommonResponse.builder()
                 .data(temperatureByMenu)

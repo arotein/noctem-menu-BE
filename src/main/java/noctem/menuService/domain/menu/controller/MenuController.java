@@ -108,7 +108,7 @@ public class MenuController {
     public CommonResponse getMenuList(@PathVariable Long categorySId) {
 
         List<MenuListResDto> menuList = iMenuService.getMenuList(categorySId);
-        menuList.forEach(e -> e.setIndex(menuList.indexOf(e)+1));
+        menuList.forEach(e -> e.setIndex(menuList.indexOf(e)));
 
         return CommonResponse.builder()
                 .data(menuList)

@@ -4,11 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class CategorySResDto {
 
+    private Integer index;
     private Long categorySId;
     private String CategorySName;
     private String categorySImg;
 
+    public CategorySResDto(Long categorySId, String categorySName, String categorySImg) {
+        this.categorySId = categorySId;
+        this.CategorySName = categorySName;
+        this.categorySImg = categorySImg;
+    }
 }

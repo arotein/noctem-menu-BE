@@ -2,6 +2,7 @@ package noctem.menuService.domain.categoryL.service;
 
 import lombok.RequiredArgsConstructor;
 import noctem.menuService.domain.categoryL.dto.CategoryLDto;
+import noctem.menuService.domain.categoryL.dto.CategoryLResDto;
 import noctem.menuService.domain.categoryL.entity.CategoryLEntity;
 import noctem.menuService.domain.categoryL.repository.ICategoryLRepository;
 import org.modelmapper.ModelMapper;
@@ -65,16 +66,16 @@ public class CategoryLServiceImple implements ICategoryLService{
 
     // 3. 대 카테고리 전체 조회
     @Override
-    public List<CategoryLDto> getAllCategoryL() {
+    public List<CategoryLResDto> getAllCategoryL() {
 
         List<CategoryLEntity> categoryLEntityList = iCategoryLRepository.findAll();
-        List<CategoryLDto> categoryLDtoList = new ArrayList<>(); // 비어있는 categoryLDtoList 선언
+        List<CategoryLResDto> categoryLResDtoList = new ArrayList<>(); // 비어있는 categoryLDtoList 선언
 
         categoryLEntityList.forEach(categoryLEntity -> { // CategoryLEntity -> CategoryLDto
-            categoryLDtoList.add(new ModelMapper().map(categoryLEntity, CategoryLDto.class));
+            categoryLResDtoList.add(new ModelMapper().map(categoryLEntity, CategoryLResDto.class));
         });
 
-        return categoryLDtoList;
+        return categoryLResDtoList;
     }
 
     // 4. 대 카테고리 단건 조회

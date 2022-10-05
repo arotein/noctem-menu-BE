@@ -21,7 +21,7 @@ public interface ICategoryLService {
     CategoryLDto editCategoryL(Long categoryLId, CategoryLDto categoryLDto) throws Exception;
 
     // 3. 대 카테고리 전체 조회
-    List<CategoryLDto> getAllCategoryL();
+    List<CategoryLResDto> getAllCategoryL();
 
     // 4. 대 카테고리 단건 조회
     CategoryLDto getOneCategoryL(Long categoryLId) throws Exception;

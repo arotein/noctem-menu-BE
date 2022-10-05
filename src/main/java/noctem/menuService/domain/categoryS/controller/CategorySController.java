@@ -3,9 +3,11 @@ package noctem.menuService.domain.categoryS.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import noctem.menuService.domain.categoryS.dto.CategorySDto;
+import noctem.menuService.domain.categoryS.dto.CategorySResDto;
 import noctem.menuService.domain.categoryS.dto.vo.RequestCategoryS;
 import noctem.menuService.domain.categoryS.dto.vo.ResponseCategoryS;
 import noctem.menuService.domain.categoryS.service.ICategorySService;
+import noctem.menuService.domain.menu.dto.MenuListResDto;
 import noctem.menuService.global.common.CommonResponse;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -120,8 +122,12 @@ public class CategorySController {
     // 6. 대 카테고리 - 소 카테고리 리스트 조회
     @GetMapping("/{categoryLId}/categoryS")
     public CommonResponse getCategorySListByCategoryL(@PathVariable Long categoryLId){
+
+        List<CategorySResDto> categorySResDtoList = iCategorySService.getCategorySListByCategoryL(categoryLId);
+        categorySResDtoList.forEach(e -> e.setIndex(categorySResDtoList.indexOf(e)));
+
         return CommonResponse.builder()
-                .data(iCategorySService.getCategorySListByCategoryL(categoryLId))
+                .data(categorySResDtoList)
                 .build();
     }
 }

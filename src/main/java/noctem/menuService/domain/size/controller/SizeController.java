@@ -1,11 +1,15 @@
 package noctem.menuService.domain.size.controller;
 
 import lombok.RequiredArgsConstructor;
+import noctem.menuService.domain.size.dto.SizeByTempResDto;
 import noctem.menuService.domain.size.dto.SizeReqDto;
 import noctem.menuService.domain.size.dto.SizeResDto;
 import noctem.menuService.domain.size.service.ISizeService;
+import noctem.menuService.domain.temperature.dto.TemperatureListResDto;
 import noctem.menuService.global.common.CommonResponse;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -67,8 +71,12 @@ public class SizeController {
     // 6. 온도-사이즈 리스트 조회
     @GetMapping("/{temperatureId}/size")
     public CommonResponse getSizeListByTemperature(@PathVariable Long temperatureId){
+
+        List<SizeByTempResDto> sizeByTempResDtoList = iSizeService.getSizeListByTemperature(temperatureId);
+        sizeByTempResDtoList.forEach(e -> e.setIndex(sizeByTempResDtoList.indexOf(e)));
+
         return CommonResponse.builder()
-                .data(iSizeService.getSizeListByTemperature(temperatureId))
+                .data(sizeByTempResDtoList)
                 .build();
     }
 }

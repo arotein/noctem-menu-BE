@@ -66,8 +66,12 @@ public class CategoryLController {
     // 3. 대 카테고리 전체 조회
     @GetMapping("/categoryL")
     public CommonResponse getAllCategoryL(){
+
+        List<CategoryLResDto> categoryLDtoList = iCategoryLService.getAllCategoryL();
+        categoryLDtoList.forEach(e -> e.setIndex(categoryLDtoList.indexOf(e)));
+
         return CommonResponse.builder()
-                .data(iCategoryLService.getAllCategoryL())
+                .data(categoryLDtoList)
                 .build();
     }
 

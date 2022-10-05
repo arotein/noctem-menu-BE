@@ -9,8 +9,7 @@ import java.util.List;
 @Data
 public class CategoryLResDto {
 
+    private Integer index;
     private Long id;
     private String categoryLName;
-
-    private List<CategorySEntity> categorySEntityList = new ArrayList<>();
 }
