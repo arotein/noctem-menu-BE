@@ -6,13 +6,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface IMenuRepository extends JpaRepository<MenuEntity, Long>, IMenuRepository2 {
 
 //    @Query("select t.id, t.menuName, t.menuEngName, t.menuImg " +
 //            "from SizeEntity s " +
 //            "join s.temperatureEntity t " +
 //            "join t.menuEntity m " +
-//            "where t.id = s.temperatureId and s.id = :sizeId and m.id = t.menuId"
+//            "where s.id = :sizeId and t.id = s.temperatureEntity and m.id = t.menuEntity"
 //    )
 //    MenuEntity findMenuCartBySizeId(@Param("sizeId") Long sizeId);
 
@@ -30,5 +32,7 @@ public interface IMenuRepository extends JpaRepository<MenuEntity, Long>, IMenuR
 //    join menu m
 //    join personaloption p
 //    where t.id = s.temperature_id and s.id = 1 and m.id = t.menu_id and m.id = p.menu_entity_id;
+
+
 
 }

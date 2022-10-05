@@ -118,11 +118,11 @@ public class MenuController {
     }
 
     // 7. 장바구니 목록 조회
-//    @GetMapping("/menu/cart/{id}")
-//    public CommonResponse getCartAndOptions(@PathVariable Long id, @RequestBody CartAndOptionsReqServDto cartAndOptionsReqServDto) {
-//
-//        return CommonResponse.builder()
-//                .data(iMenuService.getMenuCart(cartAndOptionsReqServDto))
-//                .build();
-//    }
+    @GetMapping("/menu/cart")
+    public CommonResponse getCartAndOptions(@RequestBody List<CartAndOptionsReqServDto> cartAndOptionsReqServDto) {
+
+        return CommonResponse.builder()
+                .data(iMenuService.getMenuCart(cartAndOptionsReqServDto))
+                .build();
+    }
 }

@@ -8,12 +8,13 @@ public class CartAndOptionResServDto {
     private String menuName;
     private String menuEngName;
     private String menuImg;
-//    private PersonalOptionEntity personalOptionEntity;
+//    private List<PersonalOptionEntity> personalOptionEntityList = new ArrayList<>();
 
 
     public CartAndOptionResServDto(String menuName, String menuEngName, String menuImg) {
         this.menuName = menuName;
         this.menuEngName = menuEngName;
         this.menuImg = menuImg;
+//        this.personalOptionEntityList = personalOptionEntityList;
     }
 }

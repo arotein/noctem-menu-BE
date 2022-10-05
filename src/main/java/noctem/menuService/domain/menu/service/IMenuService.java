@@ -1,8 +1,10 @@
 package noctem.menuService.domain.menu.service;
 
+import noctem.menuService.domain.menu.dto.CartAndOptionResServDto;
 import noctem.menuService.domain.menu.dto.CartAndOptionsReqServDto;
 import noctem.menuService.domain.menu.dto.MenuDto;
 import noctem.menuService.domain.menu.dto.MenuListResDto;
+import noctem.menuService.domain.menu.entity.MenuEntity;
 
 import java.util.List;
 
@@ -37,5 +39,5 @@ public interface IMenuService {
     List<MenuListResDto> getMenuList(Long categorySId);
 
     // 7. 장바구니 목록 조회
-//    CartAndOptionsResServDto getMenuCart(CartAndOptionsReqServDto cartAndOptionsReqServDto);
+    List<CartAndOptionResServDto> getMenuCart(List<CartAndOptionsReqServDto> cartAndOptionsReqServDto);
 }

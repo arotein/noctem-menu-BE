@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import noctem.menuService.domain.categoryS.entity.CategorySEntity;
 import noctem.menuService.domain.nutrition.entity.NutritionEntity;
+import noctem.menuService.domain.personalOption.entity.PersonalOptionEntity;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import noctem.menuService.global.BaseEntity;
 
@@ -36,4 +37,7 @@ public class MenuEntity extends BaseEntity {
 
     @OneToOne
     private NutritionEntity nutritionEntity;
+
+    @OneToMany(mappedBy = "menuEntity")
+    private List<PersonalOptionEntity> personalOptionEntityList = new ArrayList<>();
 }

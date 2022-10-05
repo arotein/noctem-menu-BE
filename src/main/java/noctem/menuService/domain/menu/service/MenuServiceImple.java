@@ -1,11 +1,15 @@
 package noctem.menuService.domain.menu.service;
 
 import lombok.RequiredArgsConstructor;
+import noctem.menuService.domain.menu.dto.CartAndOptionResServDto;
 import noctem.menuService.domain.menu.dto.CartAndOptionsReqServDto;
 import noctem.menuService.domain.menu.dto.MenuDto;
 import noctem.menuService.domain.menu.dto.MenuListResDto;
 import noctem.menuService.domain.menu.entity.MenuEntity;
 import noctem.menuService.domain.menu.repository.IMenuRepository;
+import noctem.menuService.domain.personalOption.entity.PersonalOptionEntity;
+import noctem.menuService.domain.size.entity.SizeEntity;
+import noctem.menuService.domain.size.repository.ISizeRepository;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -21,6 +25,7 @@ import java.util.stream.Collectors;
 public class MenuServiceImple implements IMenuService {
 
     private final IMenuRepository iMenuRepository;
+    private final ISizeRepository iSizeRepository;
     private final String TEMPERATURE_POLICY = "ice";
 
     /*
@@ -101,7 +106,7 @@ public class MenuServiceImple implements IMenuService {
 
         menuEntityList.forEach(menuEntity -> {
 
-            if (menuEntity.getIsDeleted() == false)
+            if (!menuEntity.getIsDeleted())
                 menuDtoList.add(new ModelMapper().map(menuEntity, MenuDto.class));
         });
         return menuDtoList;
@@ -134,14 +139,20 @@ public class MenuServiceImple implements IMenuService {
     }
 
     // 7. 장바구니 목록 조회
-//    @Override
-//    public CartAndOptionsResServDto getMenuCart(CartAndOptionsReqServDto cartAndOptionsReqServDto) {
-//
-//        MenuEntity menuEntity = iMenuRepository.findMenuCartBySizeId(cartAndOptionsReqServDto.getSizeId());
-//
-//        return new CartAndOptionsResServDto(
-//                menuEntity.getName(), menuEntity.getName(), menuEntity.getAllergy()
-//        );
-//
-//    }
+    @Override
+    public List<CartAndOptionResServDto> getMenuCart(List<CartAndOptionsReqServDto> cartAndOptionsReqServDto) {
+
+//        SizeEntity sizeEntity = iSizeRepository.findById(cartAndOptionsReqServDto.getSizeId()).get();
+//        TemperatureEntity temperatureEntity = sizeEntity.getTemperatureEntity();
+//        MenuEntity menuEntity = temperatureEntity.getMenuEntity();
+//        List<PersonalOptionEntity> personalOptionEntityList = menuEntity.getPersonalOptionEntityList();
+
+
+        List<Long> sizeIdList = cartAndOptionsReqServDto.stream().map(e -> e.getSizeId()).collect(Collectors.toList());
+
+        List<SizeEntity> bySizeIdIn = iSizeRepository.findByIdIn(sizeIdList);
+
+        return bySizeIdIn.stream().map(e -> new CartAndOptionResServDto(e.getTemperatureEntity().getMenuName(),
+                e.getTemperatureEntity().getMenuEngName(), e.getTemperatureEntity().getMenuImg())).collect(Collectors.toList());
+    }
 }

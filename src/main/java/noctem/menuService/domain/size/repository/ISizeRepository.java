@@ -16,4 +16,6 @@ public interface ISizeRepository extends JpaRepository<SizeEntity, Long> {
     )
     List<SizeEntity> findSizeListByTemp(@Param("temperatureId") Long temperatureId);
 
+    List<SizeEntity> findByIdIn(List<Long> sizeId);
+
 }

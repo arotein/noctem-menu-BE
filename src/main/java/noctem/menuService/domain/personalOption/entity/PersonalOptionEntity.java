@@ -22,7 +22,7 @@ public class PersonalOptionEntity extends BaseEntity {
     private Integer extraCost;
     private Boolean essential;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     private MenuEntity menuEntity;
 
 }
