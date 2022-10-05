@@ -1,10 +1,12 @@
 package noctem.menuService.domain.menu.service;
 
 import lombok.RequiredArgsConstructor;
+import noctem.menuService.domain.menu.dto.CartAndOptionsReqServDto;
 import noctem.menuService.domain.menu.dto.MenuDto;
 import noctem.menuService.domain.menu.dto.MenuListResDto;
 import noctem.menuService.domain.menu.entity.MenuEntity;
-import noctem.menuService.domain.menu.repository.IIMenuRepository;
+import noctem.menuService.domain.menu.repository.IMenuRepository;
+import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class MenuServiceImple implements IMenuService {
 
-    private final IIMenuRepository iMenuRepository;
+    private final IMenuRepository iMenuRepository;
     private final String TEMPERATURE_POLICY = "ice";
 
     /*
@@ -28,6 +30,7 @@ public class MenuServiceImple implements IMenuService {
         4. 메뉴 전체 조회
         5. 메뉴 단건 조회
         6. 소카테고리-메뉴 조회
+        7. 장바구니 목록 조회
      */
 
     // 1. 메뉴 등록
@@ -126,7 +129,19 @@ public class MenuServiceImple implements IMenuService {
     public List<MenuListResDto> getMenuList(Long categorySId) {
         List<MenuEntity> menuList = iMenuRepository.findMenuByCategoryS(categorySId);
         return menuList.stream().map(e ->
-                        new MenuListResDto(e.getTemperatureEntityList(), e.getPrice(), TEMPERATURE_POLICY))
+                        new MenuListResDto(e.getId(), e.getTemperatureEntityList(), e.getPrice(), TEMPERATURE_POLICY))
                 .collect(Collectors.toList());
     }
+
+    // 7. 장바구니 목록 조회
+//    @Override
+//    public CartAndOptionsResServDto getMenuCart(CartAndOptionsReqServDto cartAndOptionsReqServDto) {
+//
+//        MenuEntity menuEntity = iMenuRepository.findMenuCartBySizeId(cartAndOptionsReqServDto.getSizeId());
+//
+//        return new CartAndOptionsResServDto(
+//                menuEntity.getName(), menuEntity.getName(), menuEntity.getAllergy()
+//        );
+//
+//    }
 }
