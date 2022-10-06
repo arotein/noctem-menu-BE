@@ -20,4 +20,7 @@ public interface INutritionService {
 
     // 5. 영양정보 전체 조회
     NutritionResDto getOneNutrition(Long nutritionId);
+
+    // 6. 메뉴 ID - 영양정보 조회
+    NutritionResDto getNutritionListByMenu(Long menuId);
 }

@@ -24,6 +24,7 @@ public class NutritionController {
         3. 영양정보 삭제
         4. 영양정보 전체 조회
         5. 영양정보 단건 조회
+        6. 메뉴 ID - 영양정보 조회
      */
 
     // 4. 영양정보 전체 조회
@@ -43,4 +44,11 @@ public class NutritionController {
                 .build();
     }
 
+    // 6. 메뉴 ID - 영양정보 조회
+    @GetMapping("{menuId}/nutrition")
+    public CommonResponse getNutritionByMenu(@PathVariable Long menuId){
+        return CommonResponse.builder()
+                .data(iNutritionService.getNutritionListByMenu(menuId))
+                .build();
+    }
 }

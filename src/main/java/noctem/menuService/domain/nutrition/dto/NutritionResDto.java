@@ -8,15 +8,15 @@ import lombok.Data;
 public class NutritionResDto {
 
     private Long id;
-    private int kcal; // 칼로리
-    private int carbohydrates; // 탄수화물
-    private int sugars; // 당류
-    private int sodium; // 나트륨
-    private int protein; // 단백질
-    private int fat; // 지방
-    private int cholesterol; // 콜레스트롤
-    private int transFat; // 트랜스지방
-    private int caffeine; // 카페인
-    private int saturatedFat; // 포화지방
+    private double kcal; // 칼로리
+    private double carbohydrates; // 탄수화물
+    private double sugars; // 당류
+    private double sodium; // 나트륨
+    private double protein; // 단백질
+    private double fat; // 지방
+    private double cholesterol; // 콜레스트롤
+    private double transFat; // 트랜스지방
+    private double caffeine; // 카페인
+    private double saturatedFat; // 포화지방
 
 }

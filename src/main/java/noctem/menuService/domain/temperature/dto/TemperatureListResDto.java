@@ -20,8 +20,10 @@ public class TemperatureListResDto {
     private String menuImg;
     private String temperature;
     private Integer price;
+    private String allergy;
 
-    public TemperatureListResDto(Long temperatureId, Long menuId, String menuName, String menuEngName, String description, String menuImg, String temperature, Integer price) {
+    public TemperatureListResDto(Long temperatureId, Long menuId, String menuName, String menuEngName,
+                                 String description, String menuImg, String temperature, Integer price, String allergy) {
         this.temperatureId = temperatureId;
         this.menuId = menuId;
         this.menuName = menuName;
@@ -30,5 +32,6 @@ public class TemperatureListResDto {
         this.menuImg = menuImg;
         this.temperature = temperature;
         this.price = price;
+        this.allergy = allergy;
     }
 }

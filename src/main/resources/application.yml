@@ -1,5 +1,5 @@
 server:
-  port: 53639
+  port: 0
   servlet:
     encoding:
       charset: UTF-8

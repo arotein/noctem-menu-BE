@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class NutritionServiceImple implements INutritionService{
 
-    private INutritionRepository inutritionRepository;
+    private final INutritionRepository inutritionRepository;
 
     /*
         1. 영양정보 등록
@@ -28,6 +28,7 @@ public class NutritionServiceImple implements INutritionService{
         3. 영양정보 삭제
         4. 영양정보 전체 조회
         5. 영양정보 단건 조회
+        6. 메뉴-영양정보 조회
      */
 
     // 4. 영양정보 전체 조회
@@ -65,5 +66,15 @@ public class NutritionServiceImple implements INutritionService{
             , n.get().getCaffeine(), n.get().getSaturatedFat());
 
         return null;
+    }
+
+    // 6. 메뉴 ID - 영양정보 조회
+    @Override
+    public NutritionResDto getNutritionListByMenu(Long menuId) {
+
+        NutritionEntity n = inutritionRepository.findNutritionListByMenu(menuId);
+
+        return new NutritionResDto(n.getId(), n.getKcal(), n.getCarbohydrates(), n.getSugars(), n.getSodium(),
+                n.getProtein(), n.getFat(), n.getCholesterol(), n.getTransFat(), n.getCaffeine(), n.getSaturatedFat());
     }
 }

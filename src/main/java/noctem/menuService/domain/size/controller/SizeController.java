@@ -1,12 +1,9 @@
 package noctem.menuService.domain.size.controller;
 
 import lombok.RequiredArgsConstructor;
-import noctem.menuService.domain.size.dto.PersonalOptionListResDto;
 import noctem.menuService.domain.size.dto.SizeByTempResDto;
 import noctem.menuService.domain.size.dto.SizeReqDto;
-import noctem.menuService.domain.size.dto.SizeResDto;
 import noctem.menuService.domain.size.service.ISizeService;
-import noctem.menuService.domain.temperature.dto.TemperatureListResDto;
 import noctem.menuService.global.common.CommonResponse;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +24,6 @@ public class SizeController {
         4. 사이즈 전체 조회
         5. 사이즈 단건 조회
         6. 온도-사이즈 리스트 조회
-        7. 사이즈-퍼스널옵션 리스트 조회
      */
 
     // 1. 사이즈 등록
@@ -82,11 +78,4 @@ public class SizeController {
                 .build();
     }
 
-    // 7. 사이즈-퍼스널옵션 리스트 조회
-    @GetMapping("{sizeId}/personalOption")
-    public CommonResponse gePersonalOptionListBySize(@PathVariable Long sizeId) {
-
-        List<PersonalOptionListResDto> sizeListByTemperature2 = iSizeService.getSizeListByTemperature2(sizeId);
-        return null;
-    }
 }

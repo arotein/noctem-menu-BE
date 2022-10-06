@@ -1,6 +1,5 @@
 package noctem.menuService.domain.size.service;
 
-import noctem.menuService.domain.size.dto.PersonalOptionListResDto;
 import noctem.menuService.domain.size.dto.SizeByTempResDto;
 import noctem.menuService.domain.size.dto.SizeReqDto;
 import noctem.menuService.domain.size.dto.SizeResDto;
@@ -35,7 +34,4 @@ public interface ISizeService {
 
     // 6. 온도-사이즈 리스트 조회
     List<SizeByTempResDto> getSizeListByTemperature(Long temperatureId);
-
-
-    List<PersonalOptionListResDto> getSizeListByTemperature2(Long sizeId);
 }
