@@ -7,14 +7,10 @@ import noctem.menuService.domain.personalOption.dto.PersonalOptionReqDto;
 import noctem.menuService.domain.personalOption.dto.PersonalOptionResDto;
 import noctem.menuService.domain.personalOption.entity.PersonalOptionEntity;
 import noctem.menuService.domain.personalOption.repository.IPersonalOptionRepository;
-import noctem.menuService.domain.size.dto.SizeReqDto;
-import noctem.menuService.domain.size.dto.SizeResDto;
-import noctem.menuService.domain.size.entity.SizeEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -96,7 +92,8 @@ public class PersonalOptionServiceImple implements IPersonalOptionService{
         List<PersonalOptionEntity> personalOptionEntityList = iPersonalOptionRepository.findAll();
 
         return personalOptionEntityList.stream().map(e ->
-                        new PersonalOptionResDto(e.getOptionType(), e.getOptionName(), e.getAmount(), e.getExtraCost(), e.getEssential()))
+                        new PersonalOptionResDto(e.getOptionType(), e.getOptionName(), e.getAmount(), e.getExtraCost(),
+                                e.getIsEssential()))
                 .collect(Collectors.toList());
     }
 
@@ -121,16 +118,10 @@ public class PersonalOptionServiceImple implements IPersonalOptionService{
 
         List<PersonalOptionEntity> personalOptionListByMenu = iPersonalOptionRepository.findPersonalOptionListByMenu(menuId);
 
-        log.info("menuId : ", personalOptionListByMenu.get(0));
-        System.out.println("personalOptionListByMenu.get(0) = " + personalOptionListByMenu.get(0));
-
-        List<PersonalOptionListResDto> personalOptionListResDtos = new ArrayList<>();
-
-        personalOptionListByMenu.stream().map(e ->
-                    new PersonalOptionResDto(e.getOptionType(), e.getOptionName(), e.getAmount(),
-                            e.getExtraCost(), e.getEssential()))
+        return personalOptionListByMenu.stream().map(e ->
+                    new PersonalOptionListResDto(e.getId(), e.getMenuEntity().getId(), e.getOptionType(),
+                            e.getOptionNumber() , e.getOptionName(), e.getAmount(), e.getExtraCost(), e.getIsEssential(),
+                            e.getIsDefault()))
                 .collect(Collectors.toList());
-
-        return personalOptionListResDtos;
     }
 }

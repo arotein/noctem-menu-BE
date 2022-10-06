@@ -8,6 +8,7 @@ import noctem.menuService.domain.menu.dto.MenuListResDto;
 import noctem.menuService.domain.menu.dto.vo.RequestMenu;
 import noctem.menuService.domain.menu.dto.vo.ResponseMenu;
 import noctem.menuService.domain.menu.service.IMenuService;
+import noctem.menuService.domain.size.repository.ISizeRepository;
 import noctem.menuService.global.common.CommonResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ import java.util.List;
 public class MenuController {
 
     private final IMenuService iMenuService;
+    private final ISizeRepository iSizeRepository;
 
     /*
         1. 메뉴 등록
@@ -32,7 +34,8 @@ public class MenuController {
         4. 메뉴 전체 조회
         5. 메뉴 단건 조회
         6. 소카테고리-메뉴 조회
-        7. 장바구니 목록 조회
+        7-1. 장바구니 목록 조회 (리스트)
+        7-2. 장바구니 목록 조회 (requestparam)
      */
 
     // 1. 메뉴 등록
@@ -118,12 +121,25 @@ public class MenuController {
                 .build();
     }
 
-    // 7. 장바구니 목록 조회
+    // 7-1. 장바구니 목록 조회 (리스트)
     @GetMapping("/menu/cart")
     public CommonResponse getCartAndOptions(@RequestBody List<CartAndOptionsReqServDto> cartAndOptionsReqServDto) {
 
         return CommonResponse.builder()
-                .data(iMenuService.getMenuCart(cartAndOptionsReqServDto))
+                .data(iMenuService.getMenuCartList(cartAndOptionsReqServDto))
                 .build();
     }
+
+    // 7-2. 장바구니 목록 조회 (requestparam)
+    @GetMapping("/menu/cart/{cartOrMyMenuId}/{sizeId}")
+    public CommonResponse getCartAndOptions(
+            @PathVariable Long cartOrMyMenuId,
+            @PathVariable Long sizeId,
+            @RequestParam List<Long> optionIdList) {
+        return CommonResponse.builder()
+                .data(iMenuService.getMenuCart(cartOrMyMenuId, sizeId, optionIdList))
+                .build();
+    }
+
+
 }

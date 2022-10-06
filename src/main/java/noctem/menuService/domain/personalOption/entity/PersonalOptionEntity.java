@@ -17,10 +17,12 @@ public class PersonalOptionEntity extends BaseEntity {
     private Long id;
 
     private String optionType;
+    private Integer optionNumber;
     private String optionName;
     private String amount;
     private Integer extraCost;
-    private Boolean essential;
+    private Boolean isEssential;
+    private Boolean isDefault;
 
     @ManyToOne (fetch = FetchType.LAZY)
     private MenuEntity menuEntity;

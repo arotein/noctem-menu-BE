@@ -34,4 +34,5 @@ public interface IPersonalOptionService {
 
     // 6. 메뉴-퍼스널 옵션 리스트 조회
     List<PersonalOptionListResDto> getPersonalOptionListByMenu(Long menuId);
+
 }

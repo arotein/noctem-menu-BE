@@ -1,6 +1,9 @@
 package noctem.menuService.domain.size.service;
 
 import lombok.RequiredArgsConstructor;
+import noctem.menuService.domain.menu.entity.MenuEntity;
+import noctem.menuService.domain.personalOption.entity.PersonalOptionEntity;
+import noctem.menuService.domain.size.dto.PersonalOptionListResDto;
 import noctem.menuService.domain.size.dto.SizeByTempResDto;
 import noctem.menuService.domain.size.dto.SizeReqDto;
 import noctem.menuService.domain.size.dto.SizeResDto;
@@ -120,6 +123,22 @@ public class SizeServiceImple implements ISizeService{
 
         return sizeByTemp.stream().map(sizeEntity ->
             new SizeByTempResDto(sizeEntity.getId(), sizeEntity.getSize(), sizeEntity.getExtraCost()))
+                .collect(Collectors.toList());
+    }
+
+    // 7. 사이즈-퍼스널옵션 리스트 조회
+    @Override
+    public List<PersonalOptionListResDto> getSizeListByTemperature2(Long sizeId) {
+
+        SizeEntity sizeEntity = iSizeRepository.findById(sizeId).get();
+
+        MenuEntity menuEntity = sizeEntity.getTemperatureEntity().getMenuEntity();
+
+        List<PersonalOptionEntity> personalOptionEntityList = menuEntity.getPersonalOptionEntityList();
+
+        return personalOptionEntityList.stream().map(e ->
+                new PersonalOptionListResDto(e.getId(), e.getMenuEntity().getId(), e.getOptionType(), e.getOptionNumber()
+                , e.getOptionName(), e.getAmount(), e.getExtraCost(), e.getIsEssential(), e.getIsDefault()))
                 .collect(Collectors.toList());
     }
 }

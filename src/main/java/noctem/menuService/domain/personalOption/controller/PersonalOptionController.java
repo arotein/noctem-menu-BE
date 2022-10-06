@@ -18,7 +18,7 @@ import java.util.List;
 @Slf4j
 public class PersonalOptionController {
 
-    private IPersonalOptionService iPersonalOptionService;
+    private final IPersonalOptionService iPersonalOptionService;
 
     /*
         6. 메뉴-퍼스널 옵션 리스트 조회

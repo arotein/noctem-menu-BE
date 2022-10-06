@@ -1,10 +1,6 @@
 package noctem.menuService.domain.menu.service;
 
-import noctem.menuService.domain.menu.dto.CartAndOptionResServDto;
-import noctem.menuService.domain.menu.dto.CartAndOptionsReqServDto;
-import noctem.menuService.domain.menu.dto.MenuDto;
-import noctem.menuService.domain.menu.dto.MenuListResDto;
-import noctem.menuService.domain.menu.entity.MenuEntity;
+import noctem.menuService.domain.menu.dto.*;
 
 import java.util.List;
 
@@ -17,7 +13,8 @@ public interface IMenuService {
         4. 메뉴 전체 조회
         5. 메뉴 단건 조회
         6. 소카테고리-메뉴 조회
-        7. 장바구니 목록 조회
+        7-1. 장바구니 목록 조회 (리스트)
+        7-2. 장바구니 목록 조회 (requestparam)
      */
 
     // 1. 메뉴 등록
@@ -38,6 +35,10 @@ public interface IMenuService {
     // 6. 소카테고리-메뉴 조회
     List<MenuListResDto> getMenuList(Long categorySId);
 
-    // 7. 장바구니 목록 조회
-    List<CartAndOptionResServDto> getMenuCart(List<CartAndOptionsReqServDto> cartAndOptionsReqServDto);
+    // 7-1. 장바구니 목록 조회 (리스트)
+    List<CartAndOptionListResServDto> getMenuCartList(List<CartAndOptionsReqServDto> cartAndOptionsReqServDto);
+
+    // 7-2. 장바구니 목록 조회 (requestparam)
+    CartAndOptionResServDto getMenuCart(Long cartOrMyMenuId, Long sizeId, List<Long> optionIdList);
+
 }

@@ -1,4 +1,4 @@
-package noctem.menuService.domain.personalOption.dto;
+package noctem.menuService.domain.menu.dto;
 
 import lombok.Data;
 

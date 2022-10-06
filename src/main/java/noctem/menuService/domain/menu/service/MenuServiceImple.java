@@ -1,23 +1,20 @@
 package noctem.menuService.domain.menu.service;
 
 import lombok.RequiredArgsConstructor;
-import noctem.menuService.domain.menu.dto.CartAndOptionResServDto;
-import noctem.menuService.domain.menu.dto.CartAndOptionsReqServDto;
-import noctem.menuService.domain.menu.dto.MenuDto;
-import noctem.menuService.domain.menu.dto.MenuListResDto;
+import noctem.menuService.domain.menu.dto.*;
 import noctem.menuService.domain.menu.entity.MenuEntity;
 import noctem.menuService.domain.menu.repository.IMenuRepository;
-import noctem.menuService.domain.personalOption.entity.PersonalOptionEntity;
 import noctem.menuService.domain.size.entity.SizeEntity;
 import noctem.menuService.domain.size.repository.ISizeRepository;
-import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -138,22 +135,39 @@ public class MenuServiceImple implements IMenuService {
                 .collect(Collectors.toList());
     }
 
-    // 7. 장바구니 목록 조회
+    // 7-1. 장바구니 목록 조회 (리스트)
     @Override
-    public List<CartAndOptionResServDto> getMenuCart(List<CartAndOptionsReqServDto> cartAndOptionsReqServDto) {
+    public List<CartAndOptionListResServDto> getMenuCartList(List<CartAndOptionsReqServDto> dto) {
 
-//        SizeEntity sizeEntity = iSizeRepository.findById(cartAndOptionsReqServDto.getSizeId()).get();
-//        TemperatureEntity temperatureEntity = sizeEntity.getTemperatureEntity();
-//        MenuEntity menuEntity = temperatureEntity.getMenuEntity();
-//        List<PersonalOptionEntity> personalOptionEntityList = menuEntity.getPersonalOptionEntityList();
+//        List<Long> sizeIdList = dto.stream().map(e -> e.getSizeId()).collect(Collectors.toList());
+//
+//        List<SizeEntity> bySizeIdIn = iSizeRepository.findByIdIn(sizeIdList);
+//
+//        return bySizeIdIn.stream().map(e -> new CartAndOptionResServDto(e.getId(), e.getTemperatureEntity().getMenuName(),
+//                e.getTemperatureEntity().getMenuEngName(), e.getTemperatureEntity().getMenuImg(),
+//                e.getTemperatureEntity().getMenuEntity().getPrice() + e.getExtraCost()))
+//                .collect(Collectors.toList());
 
-        List<Long> sizeIdList = cartAndOptionsReqServDto.stream().map(e -> e.getSizeId()).collect(Collectors.toList());
+        Map<CartAndOptionsReqServDto, CartAndOptionListResServDto> dtoMap = dto.stream()
+                .collect(Collectors.toMap(Function.identity(), CartAndOptionListResServDto::new));
+        // size에 대한 정보만 가져옴
+        List<Long> sizeIdList = dto.stream().map(e -> e.getSizeId()).collect(Collectors.toList());
+        Map<Long, SizeEntity> sizeMap = iSizeRepository.findByIdIn(sizeIdList)
+                .stream().collect(Collectors.toMap(SizeEntity::getId, Function.identity()));
+        dto.forEach(e -> dtoMap.get(e)
+                .changeMenuIdAndSizeId(e.getCartOrMyMenuId(), e.getSizeId())
+                .changeMenuNameAndImgAndPrice(sizeMap.get(e.getSizeId())));
+        // 옵션에 대한 정보만 가져옴
 
-        List<SizeEntity> bySizeIdIn = iSizeRepository.findByIdIn(sizeIdList);
-
-        return bySizeIdIn.stream().map(e -> new CartAndOptionResServDto(e.getId(), e.getTemperatureEntity().getMenuName(),
-                e.getTemperatureEntity().getMenuEngName(), e.getTemperatureEntity().getMenuImg(),
-                e.getTemperatureEntity().getMenuEntity().getPrice() + e.getExtraCost()))
-                .collect(Collectors.toList());
+        return new ArrayList<>(dtoMap.values());
     }
+
+    // 7-2. 장바구니 목록 조회 (requestparam)
+    @Override
+    public CartAndOptionResServDto getMenuCart(Long cartOrMyMenuId, Long sizeId, List<Long> optionIdList) {
+        SizeEntity sizeEntity = iSizeRepository.findById(sizeId).get();
+        CartAndOptionResServDto cartAndOptionResServDto = new CartAndOptionResServDto();
+        return cartAndOptionResServDto.setFieldData(cartOrMyMenuId, sizeEntity);
+    }
+
 }
