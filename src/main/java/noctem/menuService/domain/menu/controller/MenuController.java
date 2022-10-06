@@ -1,6 +1,7 @@
 package noctem.menuService.domain.menu.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import noctem.menuService.domain.menu.dto.CartAndOptionsReqServDto;
 import noctem.menuService.domain.menu.dto.MenuDto;
 import noctem.menuService.domain.menu.dto.MenuListResDto;

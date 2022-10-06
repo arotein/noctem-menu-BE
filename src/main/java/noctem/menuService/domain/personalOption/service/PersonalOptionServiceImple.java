@@ -1,6 +1,8 @@
 package noctem.menuService.domain.personalOption.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import noctem.menuService.domain.personalOption.dto.PersonalOptionListResDto;
 import noctem.menuService.domain.personalOption.dto.PersonalOptionReqDto;
 import noctem.menuService.domain.personalOption.dto.PersonalOptionResDto;
 import noctem.menuService.domain.personalOption.entity.PersonalOptionEntity;
@@ -12,12 +14,14 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class PersonalOptionServiceImple implements IPersonalOptionService{
 
     private final IPersonalOptionRepository iPersonalOptionRepository;
@@ -113,7 +117,20 @@ public class PersonalOptionServiceImple implements IPersonalOptionService{
 
     // 6. 메뉴-퍼스널 옵션 리스트 조회
     @Override
-    public List<PersonalOptionResDto> getPersonalOptionListByMenu(Long menuId) {
-        return null;
+    public List<PersonalOptionListResDto> getPersonalOptionListByMenu(Long menuId) {
+
+        List<PersonalOptionEntity> personalOptionListByMenu = iPersonalOptionRepository.findPersonalOptionListByMenu(menuId);
+
+        log.info("menuId : ", personalOptionListByMenu.get(0));
+        System.out.println("personalOptionListByMenu.get(0) = " + personalOptionListByMenu.get(0));
+
+        List<PersonalOptionListResDto> personalOptionListResDtos = new ArrayList<>();
+
+        personalOptionListByMenu.stream().map(e ->
+                    new PersonalOptionResDto(e.getOptionType(), e.getOptionName(), e.getAmount(),
+                            e.getExtraCost(), e.getEssential()))
+                .collect(Collectors.toList());
+
+        return personalOptionListResDtos;
     }
 }

@@ -12,7 +12,7 @@ public interface IPersonalOptionRepository extends JpaRepository<PersonalOptionE
 
     @Query("select p from PersonalOptionEntity p " +
             "join p.menuEntity m " +
-            "where m.id = :menuId"
+            "where p.menuEntity = :menuId"
     )
     List<PersonalOptionEntity> findPersonalOptionListByMenu(@Param("menuId") Long menuId);
 }

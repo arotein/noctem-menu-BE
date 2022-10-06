@@ -1,5 +1,6 @@
 package noctem.menuService.domain.personalOption.service;
 
+import noctem.menuService.domain.personalOption.dto.PersonalOptionListResDto;
 import noctem.menuService.domain.personalOption.dto.PersonalOptionReqDto;
 import noctem.menuService.domain.personalOption.dto.PersonalOptionResDto;
 
@@ -32,5 +33,5 @@ public interface IPersonalOptionService {
     PersonalOptionResDto getOnePersonalOption(Long personalOptionId);
 
     // 6. 메뉴-퍼스널 옵션 리스트 조회
-    List<PersonalOptionResDto> getPersonalOptionListByMenu(Long menuId);
+    List<PersonalOptionListResDto> getPersonalOptionListByMenu(Long menuId);
 }

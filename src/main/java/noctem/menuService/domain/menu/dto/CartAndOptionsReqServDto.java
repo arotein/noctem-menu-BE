@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CartAndOptionsReqServDto {
     private Long sizeId;
-//    private List<Long> optionIdList;
+    private List<Long> optionIdList;
 
 
     public CartAndOptionsReqServDto(Long sizeId) {
