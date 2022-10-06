@@ -147,12 +147,13 @@ public class MenuServiceImple implements IMenuService {
 //        MenuEntity menuEntity = temperatureEntity.getMenuEntity();
 //        List<PersonalOptionEntity> personalOptionEntityList = menuEntity.getPersonalOptionEntityList();
 
-
         List<Long> sizeIdList = cartAndOptionsReqServDto.stream().map(e -> e.getSizeId()).collect(Collectors.toList());
 
         List<SizeEntity> bySizeIdIn = iSizeRepository.findByIdIn(sizeIdList);
 
         return bySizeIdIn.stream().map(e -> new CartAndOptionResServDto(e.getTemperatureEntity().getMenuName(),
-                e.getTemperatureEntity().getMenuEngName(), e.getTemperatureEntity().getMenuImg())).collect(Collectors.toList());
+                e.getTemperatureEntity().getMenuEngName(), e.getTemperatureEntity().getMenuImg(),
+                e.getTemperatureEntity().getMenuEntity().getPrice() + e.getExtraCost()))
+                .collect(Collectors.toList());
     }
 }
