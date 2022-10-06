@@ -131,8 +131,8 @@ public class TemperatureServiceImple implements ITemperatureService{
 //                .collect(Collectors.toList());
 
         return temperatureEntityList.stream().map(e ->
-                new TemperatureListResDto(e.getId(), e.getMenuEntity().getId(), e.getMenuName(), e.getMenuEngName(), e.getDescription(),
-                                            e.getMenuImg(), e.getTemperature()))
+                new TemperatureListResDto(e.getId(), e.getMenuEntity().getId(), e.getMenuName(), e.getMenuEngName(),
+                        e.getDescription(), e.getMenuImg(), e.getTemperature(), e.getMenuEntity().getPrice()))
                 .collect(Collectors.toList());
     }
 }

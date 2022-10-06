@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/menu-service")
@@ -26,10 +28,11 @@ public class PersonalOptionController {
     @GetMapping("/{menuId}/personalOption")
     public CommonResponse getPersonalOptionByMenuId(@PathVariable Long menuId){
 
-        log.info("menuId : ", menuId);
+        List<PersonalOptionListResDto> personalOptionListByMenu = iPersonalOptionService.getPersonalOptionListByMenu(menuId);
+        personalOptionListByMenu.forEach(e -> e.setIndex(personalOptionListByMenu.indexOf(e)));
 
         return CommonResponse.builder()
-                .data(iPersonalOptionService.getPersonalOptionListByMenu(menuId))
+                .data(personalOptionListByMenu)
                 .build();
     }
 

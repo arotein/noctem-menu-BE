@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class PersonalOptionListResDto {
 
+    private Integer index;
     private Long id;
     private String optionType;
     private String optionName;
