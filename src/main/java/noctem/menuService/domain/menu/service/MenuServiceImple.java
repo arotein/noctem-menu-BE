@@ -151,7 +151,7 @@ public class MenuServiceImple implements IMenuService {
 
         List<SizeEntity> bySizeIdIn = iSizeRepository.findByIdIn(sizeIdList);
 
-        return bySizeIdIn.stream().map(e -> new CartAndOptionResServDto(e.getTemperatureEntity().getMenuName(),
+        return bySizeIdIn.stream().map(e -> new CartAndOptionResServDto(e.getId(), e.getTemperatureEntity().getMenuName(),
                 e.getTemperatureEntity().getMenuEngName(), e.getTemperatureEntity().getMenuImg(),
                 e.getTemperatureEntity().getMenuEntity().getPrice() + e.getExtraCost()))
                 .collect(Collectors.toList());

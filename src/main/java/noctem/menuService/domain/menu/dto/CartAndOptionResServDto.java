@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class CartAndOptionResServDto {
 
+    private Long sizeId;
     private String menuName;
     private String menuEngName;
     private String menuImg;
@@ -12,7 +13,9 @@ public class CartAndOptionResServDto {
 //    private List<PersonalOptionEntity> personalOptionEntityList = new ArrayList<>();
 
 
-    public CartAndOptionResServDto(String menuName, String menuEngName, String menuImg, Integer totalPrice) {
+    public CartAndOptionResServDto(Long sizeId, String menuName,
+                                   String menuEngName, String menuImg, Integer totalPrice) {
+        this.sizeId = sizeId;
         this.menuName = menuName;
         this.menuEngName = menuEngName;
         this.menuImg = menuImg;
