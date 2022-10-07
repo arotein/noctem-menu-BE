@@ -4,12 +4,8 @@ import lombok.RequiredArgsConstructor;
 import noctem.menuService.domain.menu.dto.*;
 import noctem.menuService.domain.menu.entity.MenuEntity;
 import noctem.menuService.domain.menu.repository.IMenuRepository;
-import noctem.menuService.domain.size.dto.SizeByTempResDto;
-import noctem.menuService.domain.size.dto.SizeResDto;
 import noctem.menuService.domain.size.entity.SizeEntity;
 import noctem.menuService.domain.size.repository.ISizeRepository;
-import noctem.menuService.domain.temperature.dto.TemperatureWithSizeListResDto;
-import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
@@ -178,27 +174,7 @@ public class MenuServiceImple implements IMenuService {
     // 8. 메뉴 하위 정보 상세 조회
     @Override
     public MenuDetailResDto getMenuDetail(Long menuId) {
-        MenuEntity m = iMenuRepository.findById(menuId).get();
-
-        List<TemperatureEntity> temperatureEntityList = m.getTemperatureEntityList();
-
-        List<SizeByTempResDto> sizeByTempResDtoList = new ArrayList<>();
-
-        temperatureEntityList.forEach(temperatureEntity -> {
-            List<SizeEntity> sizeListByTemp = iSizeRepository.findSizeListByTemp(temperatureEntity.getId());
-//            sizeListByTemp.forEach(e -> new SizeByTempResDto(e.getId(), e.getSize(), e.getExtraCost()));
-            sizeListByTemp.stream().map(e -> new SizeByTempResDto(e.getId(), e.getSize(), e.getExtraCost()));
-
-            temperatureEntityList.stream().map(e -> new TemperatureWithSizeListResDto(e.getId(), e.getMenuName(), e.getMenuEngName(), e.getDescription(),
-                    e.getMenuImg(), e.getTemperature())).collect(Collectors.toList());
-        });
-
-//        List<TemperatureWithSizeListResDto> temperatureWithSizeListResDtos = temperatureEntityList.stream().map(e ->
-//                new TemperatureWithSizeListResDto(e.getId(), e.getMenuName(), e.getMenuEngName(), e.getDescription(),
-//                        e.getMenuImg(), e.getTemperature())).collect(Collectors.toList());
-
-        return new MenuDetailResDto(m.getId(), m.getPrice(), m.getAllergy()
-                , m.getNutritionEntity(), temperatureWithSizeListResDtos
-        );
+        MenuEntity menuEntity = iMenuRepository.findById(menuId).get();
+        return new MenuDetailResDto(menuEntity);
     }
 }
