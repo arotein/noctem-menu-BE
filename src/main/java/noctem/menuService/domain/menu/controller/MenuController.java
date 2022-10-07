@@ -3,6 +3,7 @@ package noctem.menuService.domain.menu.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import noctem.menuService.domain.menu.dto.CartAndOptionsReqServDto;
+import noctem.menuService.domain.menu.dto.MenuDetailResDto;
 import noctem.menuService.domain.menu.dto.MenuDto;
 import noctem.menuService.domain.menu.dto.MenuListResDto;
 import noctem.menuService.domain.menu.dto.vo.RequestMenu;
@@ -36,6 +37,7 @@ public class MenuController {
         6. 소카테고리-메뉴 조회
         7-1. 장바구니 목록 조회 (리스트)
         7-2. 장바구니 목록 조회 (requestparam)
+        8. 메뉴 하위 정보 상세 조회
      */
 
     // 1. 메뉴 등록
@@ -138,6 +140,18 @@ public class MenuController {
             @RequestParam List<Long> optionIdList) {
         return CommonResponse.builder()
                 .data(iMenuService.getMenuCart(cartOrMyMenuId, sizeId, optionIdList))
+                .build();
+    }
+
+    // 8. 메뉴 하위 정보 상세 조회
+    @GetMapping("product/{menuId}")
+    public CommonResponse getProductDetail(@PathVariable Long menuId){
+
+
+//        menuDetail.forEach(e -> e.setIndex(menuList.indexOf(e)));
+
+        return CommonResponse.builder()
+                .data(iMenuService.getMenuDetail(menuId))
                 .build();
     }
 

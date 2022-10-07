@@ -20,6 +20,7 @@ public class CartAndOptionResServDto {
         this.cartOrMyMenuId = cartOrMyMenuId;
         this.sizeId = sizeEntity.getId();
         this.size = sizeEntity.getSize();
+
         TemperatureEntity tempEntity = sizeEntity.getTemperatureEntity();
         this.temperature = tempEntity.getTemperature();
         this.menuName = tempEntity.getMenuName();
