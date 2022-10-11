@@ -1,7 +1,9 @@
 package noctem.menuService.domain.menu.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import noctem.menuService.domain.menu.entity.MenuEntity;
+import noctem.menuService.domain.nutrition.entity.NutritionEntity;
 import noctem.menuService.domain.temperature.dto.TemperatureWithSizeListResDto;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 
@@ -38,7 +40,7 @@ public class MenuDetailResDto {
         this.menuId = menuEntity.getId();
         this.price = menuEntity.getPrice();
         this.allergy = menuEntity.getAllergy();
-//        this.nutritionList = null;
+//        this.nutritionList = menuEntity.getNutritionEntity();
         List<TemperatureEntity> temperatureEntityList = menuEntity.getTemperatureEntityList();
         this.temperatureList = temperatureEntityList.stream()
                 .map(e -> new TemperatureWithSizeListResDto(e)).collect(Collectors.toList());

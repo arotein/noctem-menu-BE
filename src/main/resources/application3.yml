@@ -1,10 +1,13 @@
 server:
-  port: 0
+  port: 53639
 
 spring:
   application:
     name: menu-service
-
+  mvc: # data.sql
+    hiddenmethod:
+      filter:
+        enabled: 'true'
   cloud:
     config:
       enabled: false
@@ -20,16 +23,19 @@ spring:
     password: 1234
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    open-in-view: false
-    show-sql: true
-    hibernate:
-      format_sql: true
-      ddl-auto: create
-    defer-datasource-initialization: true
+    show-sql: 'false'
+    properties:
+      hibernate:
+        format_sql: true
+        query.in_clause_parameter_padding: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate.ddl-auto: create
+    defer-datasource-initialization: true # data.sql
 
 eureka:
   instance:
+    prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   #    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}} ?? ??
   client:
@@ -39,8 +45,12 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka
 
 logging:
+  #  charset:
+  #    console: UTF-8
+  #    file: UTF-8
   level:
-    com.example.catalogservice: DEBUG
+    root: info
+    org.hibernate.SQL: debug
 
 greeting:
   message: Welcome to the Simple E-Commerce.
