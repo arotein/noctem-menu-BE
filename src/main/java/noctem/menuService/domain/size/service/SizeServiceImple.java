@@ -1,11 +1,14 @@
 package noctem.menuService.domain.size.service;
 
 import lombok.RequiredArgsConstructor;
+import noctem.menuService.domain.menu.entity.MenuEntity;
 import noctem.menuService.domain.size.dto.SizeByTempResDto;
+import noctem.menuService.domain.size.dto.SizeMenuResDto;
 import noctem.menuService.domain.size.dto.SizeReqDto;
 import noctem.menuService.domain.size.dto.SizeResDto;
 import noctem.menuService.domain.size.entity.SizeEntity;
 import noctem.menuService.domain.size.repository.ISizeRepository;
+import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
@@ -28,6 +31,7 @@ public class SizeServiceImple implements ISizeService{
         4. 사이즈 전체 조회
         5. 사이즈 단건 조회
         6. 온도-사이즈 리스트 조회
+        7. 사이즈-메뉴 조회(BE)
      */
 
     // 1. 사이즈 등록
@@ -122,5 +126,19 @@ public class SizeServiceImple implements ISizeService{
             new SizeByTempResDto(sizeEntity.getId(), sizeEntity.getSize(), sizeEntity.getExtraCost(),
                     sizeEntity.getCapacity()))
                 .collect(Collectors.toList());
+    }
+
+    // 7. 사이즈-메뉴 조회(BE)
+    @Override
+    public SizeMenuResDto getSizeMenu(Long sizeId) {
+        Optional<SizeEntity> sizeEntity = iSizeRepository.findById(sizeId);
+        TemperatureEntity temperatureEntity = sizeEntity.get().getTemperatureEntity();
+        MenuEntity menuEntity = temperatureEntity.getMenuEntity();
+
+        if(sizeEntity.isPresent()){
+            return new SizeMenuResDto(sizeEntity.get().getId(), menuEntity.getId(), temperatureEntity.getMenuName(),
+                    menuEntity.getName(), menuEntity.getPrice()+sizeEntity.get().getExtraCost());
+        }
+        return null;
     }
 }

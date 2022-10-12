@@ -24,6 +24,7 @@ public class SizeController {
         4. 사이즈 전체 조회
         5. 사이즈 단건 조회
         6. 온도-사이즈 리스트 조회
+        7. 사이즈-메뉴 조회(BE)
      */
 
     // 1. 사이즈 등록
@@ -78,4 +79,11 @@ public class SizeController {
                 .build();
     }
 
+    // 7. 사이즈-메뉴 조회(BE)
+    @GetMapping("/size/menu/{sizeId}")
+    public CommonResponse getSizeMenu(@PathVariable Long sizeId){
+        return CommonResponse.builder()
+                .data(iSizeService.getSizeMenu(sizeId))
+                .build();
+    }
 }
