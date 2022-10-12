@@ -10,6 +10,7 @@ public class SizeReqDto {
     private Long id;
     private String size;
     private Integer extraCost;
+    private Integer capacity;
 
     private TemperatureEntity temperatureEntity;
 }

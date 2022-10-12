@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import noctem.menuService.domain.menu.dto.*;
 import noctem.menuService.domain.menu.entity.MenuEntity;
 import noctem.menuService.domain.menu.repository.IMenuRepository;
+import noctem.menuService.domain.nutrition.entity.NutritionEntity;
+import noctem.menuService.domain.nutrition.repository.INutritionRepository;
 import noctem.menuService.domain.size.entity.SizeEntity;
 import noctem.menuService.domain.size.repository.ISizeRepository;
 import org.modelmapper.ModelMapper;
@@ -23,6 +25,7 @@ public class MenuServiceImple implements IMenuService {
 
     private final IMenuRepository iMenuRepository;
     private final ISizeRepository iSizeRepository;
+    private final INutritionRepository nutritionRepository;
     private final String TEMPERATURE_POLICY = "ice";
 
     /*
@@ -175,6 +178,8 @@ public class MenuServiceImple implements IMenuService {
     @Override
     public MenuDetailResDto getMenuDetail(Long menuId) {
         MenuEntity menuEntity = iMenuRepository.findById(menuId).get();
+//        NutritionEntity nutritionEntity = nutritionRepository.findNutritionListByMenu(menuId);
+
         return new MenuDetailResDto(menuEntity);
     }
 }

@@ -16,8 +16,8 @@ public class ResponseMenu {
     private Long id;
     private String allergy;
     private Integer price;
-    private boolean isSoldOut;
-    private boolean isEos;
+//    private boolean isSoldOut;
+//    private boolean isEos;
 
     private List<TemperatureEntity> temperatureEntityList = new ArrayList<>();
 

@@ -119,7 +119,8 @@ public class SizeServiceImple implements ISizeService{
         List<SizeEntity> sizeByTemp = iSizeRepository.findSizeListByTemp(temperatureId);
 
         return sizeByTemp.stream().map(sizeEntity ->
-            new SizeByTempResDto(sizeEntity.getId(), sizeEntity.getSize(), sizeEntity.getExtraCost()))
+            new SizeByTempResDto(sizeEntity.getId(), sizeEntity.getSize(), sizeEntity.getExtraCost(),
+                    sizeEntity.getCapacity()))
                 .collect(Collectors.toList());
     }
 }

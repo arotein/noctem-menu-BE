@@ -10,11 +10,11 @@ server:
 spring:
   application:
     name: menu-service
-  mvc: # data.sql
+  mvc:
     hiddenmethod:
       filter:
         enabled: 'true'
-  sql:
+  sql: # data.sql
     init:
       mode: always
 

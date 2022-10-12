@@ -11,8 +11,8 @@ public class RequestMenu {
     private String name;
     private String allergy;
     private Integer price;
-    private boolean isSoldOut;
-    private boolean isEos;
+//    private boolean isSoldOut;
+//    private boolean isEos;
 
     private CategorySEntity categorySEntity;
 }

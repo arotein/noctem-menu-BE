@@ -1,5 +1,6 @@
 package noctem.menuService.domain.nutrition.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import noctem.menuService.domain.menu.entity.MenuEntity;
@@ -27,6 +28,7 @@ public class NutritionEntity extends BaseEntity {
     private double caffeine; // 카페인
     private double saturatedFat; // 포화지방
 
-    @OneToOne
+    @OneToOne//(mappedBy = "nutritionEntity")
+    @JsonIgnore
     private MenuEntity menuEntity;
 }

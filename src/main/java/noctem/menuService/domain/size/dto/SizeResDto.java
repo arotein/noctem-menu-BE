@@ -10,10 +10,12 @@ public class SizeResDto {
     private Long id;
     private String size;
     private Integer extraCost;
+    private Integer capacity;
 
     public SizeResDto(SizeEntity sizeEntity) {
         this.id = sizeEntity.getId();
         this.size = sizeEntity.getSize();
         this.extraCost = sizeEntity.getExtraCost();
+        this.capacity = sizeEntity.getCapacity();
     }
 }

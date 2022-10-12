@@ -24,8 +24,8 @@ public class MenuEntity extends BaseEntity {
     private String name;
     private String allergy;
     private Integer price;
-    private Boolean isSoldOut = false;
-    private Boolean isEos = false;
+//    private Boolean isSoldOut = false;
+//    private Boolean isEos = false;
 
     @JsonIgnore
     @OneToMany(mappedBy = "menuEntity")

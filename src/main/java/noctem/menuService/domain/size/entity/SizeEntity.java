@@ -18,6 +18,7 @@ public class SizeEntity extends BaseEntity {
     private Long id;
     private String size;
     private Integer extraCost;
+    private Integer capacity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "temperature_id")
