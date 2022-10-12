@@ -12,5 +12,4 @@ public class CommonResponse<T> {
     private T data;
     private Integer errorCode;
     private HttpStatus httpStatus;
-    private String serviceName = "${spring.application.name}";
 }
