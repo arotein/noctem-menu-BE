@@ -298,6 +298,37 @@ INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,s
 INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (156,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',56);
 INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (157,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',56);
 INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (158,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',56);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (159,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',57);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (160,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',57);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (161,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',57);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (162,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',58);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (163,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',58);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (164,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',58);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (165,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',59);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (166,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',59);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (167,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',59);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (168,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',60);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (169,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',60);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (170,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',60);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (171,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',61);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (172,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',61);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (173,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',61);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (174,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',62);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (175,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',62);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (176,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',62);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (177,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',63);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (178,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',63);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (179,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',63);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (180,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',64);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (181,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',64);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (182,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',64);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (183,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',65);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (184,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',65);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (185,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',65);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (186,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',355,0,'Tall',66);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (187,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',473,500,'Grande',66);
+INSERT INTO menu.size (id,created_at,is_deleted,updated_at,capacity,extra_cost,size,temperature_id) VALUES (188,'2022-10-04 10:02:18',0,'2022-10-04 10:02:18',591,1000,'Venti',66);
+
 
 
 -- 퍼스널 옵션
