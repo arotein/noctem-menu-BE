@@ -25,6 +25,8 @@ public class SizeController {
         5. 사이즈 단건 조회
         6. 온도-사이즈 리스트 조회
         7. 사이즈-메뉴 조회(BE)
+        8. 사이즈ID-메뉴 조회(프론트-장바구니 조회용)
+        9. 사이즈ID-메뉴 조회(프론트-나만의메뉴 조회용)
      */
 
     // 1. 사이즈 등록
@@ -80,10 +82,26 @@ public class SizeController {
     }
 
     // 7. 사이즈-메뉴 조회(BE)
-    @GetMapping("/size/menu/{sizeId}")
+    @GetMapping("/size/menu/be/{sizeId}")
     public CommonResponse getSizeMenu(@PathVariable Long sizeId){
         return CommonResponse.builder()
                 .data(iSizeService.getSizeMenu(sizeId))
+                .build();
+    }
+
+    // 8. 사이즈ID-메뉴 조회(프론트-장바구니 조회용)
+    @GetMapping("/size/menu/forCart/{sizeId}/{cartId}")
+    public CommonResponse getMenuBySizeForCart(@PathVariable Long sizeId, @PathVariable Long cartId){
+        return CommonResponse.builder()
+                .data(iSizeService.getMenuBySizeForCart(sizeId, cartId))
+                .build();
+    }
+
+    // 9. 사이즈ID-메뉴 조회(프론트-나만의메뉴 조회용)
+    @GetMapping("/size/menu/forMyMenu/{sizeId}/{myMenuId}")
+    public CommonResponse getMenuBySizeForMyMenu(@PathVariable Long sizeId, @PathVariable Long myMenuId){
+        return CommonResponse.builder()
+                .data(iSizeService.getMenuBySizeForMyMenu(sizeId, myMenuId))
                 .build();
     }
 }

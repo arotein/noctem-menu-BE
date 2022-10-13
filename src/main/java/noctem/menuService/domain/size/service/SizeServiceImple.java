@@ -2,10 +2,7 @@ package noctem.menuService.domain.size.service;
 
 import lombok.RequiredArgsConstructor;
 import noctem.menuService.domain.menu.entity.MenuEntity;
-import noctem.menuService.domain.size.dto.SizeByTempResDto;
-import noctem.menuService.domain.size.dto.SizeMenuResDto;
-import noctem.menuService.domain.size.dto.SizeReqDto;
-import noctem.menuService.domain.size.dto.SizeResDto;
+import noctem.menuService.domain.size.dto.*;
 import noctem.menuService.domain.size.entity.SizeEntity;
 import noctem.menuService.domain.size.repository.ISizeRepository;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
@@ -32,6 +29,8 @@ public class SizeServiceImple implements ISizeService{
         5. 사이즈 단건 조회
         6. 온도-사이즈 리스트 조회
         7. 사이즈-메뉴 조회(BE)
+        8. 사이즈ID-메뉴 조회(프론트-장바구니 조회용)
+        9. 사이즈ID-메뉴 조회(프론트-나만의메뉴 조회용)
      */
 
     // 1. 사이즈 등록
@@ -139,6 +138,40 @@ public class SizeServiceImple implements ISizeService{
             return new SizeMenuResDto(sizeEntity.get().getId(), menuEntity.getId(), temperatureEntity.getMenuName(),
                     menuEntity.getName(), menuEntity.getPrice()+sizeEntity.get().getExtraCost());
         }
+        return null;
+    }
+
+    // 8. 사이즈ID-메뉴 조회(프론트-장바구니 조회용)
+    @Override
+    public MenuBySizeForCartDto getMenuBySizeForCart(Long sizeId, Long cartId) {
+
+        Optional<SizeEntity> sizeEntity = iSizeRepository.findById(sizeId);
+        TemperatureEntity temperatureEntity = sizeEntity.get().getTemperatureEntity();
+        MenuEntity menuEntity = temperatureEntity.getMenuEntity();
+
+        if(sizeEntity.isPresent()){
+            return new MenuBySizeForCartDto(cartId, temperatureEntity.getMenuName(), temperatureEntity.getMenuEngName(),
+                    temperatureEntity.getMenuImg(), temperatureEntity.getTemperature(),
+                    menuEntity.getPrice() + sizeEntity.get().getExtraCost(), sizeEntity.get().getSize());
+        }
+
+        return null;
+    }
+
+    // 9. 사이즈ID-메뉴 조회(프론트-나만의메뉴 조회용)
+    @Override
+    public MenuBySizeForMyMenuDto getMenuBySizeForMyMenu(Long sizeId, Long myMenuId) {
+
+        Optional<SizeEntity> sizeEntity = iSizeRepository.findById(sizeId);
+        TemperatureEntity temperatureEntity = sizeEntity.get().getTemperatureEntity();
+        MenuEntity menuEntity = temperatureEntity.getMenuEntity();
+
+        if(sizeEntity.isPresent()){
+            return new MenuBySizeForMyMenuDto(myMenuId, temperatureEntity.getMenuName(), temperatureEntity.getMenuImg(),
+                    temperatureEntity.getTemperature(), menuEntity.getPrice() + sizeEntity.get().getExtraCost(),
+                    sizeEntity.get().getSize());
+        }
+
         return null;
     }
 }

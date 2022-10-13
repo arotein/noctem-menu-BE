@@ -1,9 +1,6 @@
 package noctem.menuService.domain.size.service;
 
-import noctem.menuService.domain.size.dto.SizeByTempResDto;
-import noctem.menuService.domain.size.dto.SizeMenuResDto;
-import noctem.menuService.domain.size.dto.SizeReqDto;
-import noctem.menuService.domain.size.dto.SizeResDto;
+import noctem.menuService.domain.size.dto.*;
 
 import java.util.List;
 
@@ -17,6 +14,7 @@ public interface ISizeService {
         5. 사이즈 단건 조회
         6. 온도-사이즈 리스트 조회
         7. 사이즈-메뉴 조회(BE)
+        8. 사이즈ID-메뉴 조회(프론트-장바구니 조회용)
      */
 
     // 1. 온도 등록
@@ -39,4 +37,10 @@ public interface ISizeService {
 
     // 7. 사이즈-메뉴 조회(BE)
     SizeMenuResDto getSizeMenu(Long sizeId);
+
+    // 8. 사이즈ID-메뉴 조회(프론트-장바구니 조회용)
+    MenuBySizeForCartDto getMenuBySizeForCart(Long sizeId, Long cartId);
+
+    // 9. 사이즈ID-메뉴 조회(프론트-나만의메뉴 조회용)
+    MenuBySizeForMyMenuDto getMenuBySizeForMyMenu(Long sizeId, Long myMenuId);
 }
