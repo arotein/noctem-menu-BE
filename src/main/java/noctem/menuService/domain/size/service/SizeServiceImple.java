@@ -31,6 +31,7 @@ public class SizeServiceImple implements ISizeService{
         7. 사이즈-메뉴 조회(BE)
         8. 사이즈ID-메뉴 조회(프론트-장바구니 조회용)
         9. 사이즈ID-메뉴 조회(프론트-나만의메뉴 조회용)
+        10. 사이즈ID-메뉴 조회(결제 조회용)
      */
 
     // 1. 사이즈 등록
@@ -170,6 +171,21 @@ public class SizeServiceImple implements ISizeService{
             return new MenuBySizeForMyMenuDto(myMenuId, temperatureEntity.getMenuName(), temperatureEntity.getMenuImg(),
                     temperatureEntity.getTemperature(), menuEntity.getPrice() + sizeEntity.get().getExtraCost(),
                     sizeEntity.get().getSize());
+        }
+
+        return null;
+    }
+
+    // 10. 사이즈ID-메뉴 조회(결제 조회용)
+    @Override
+    public MenuBySizeForPurchaseDto getMenuBySizeForPurchase(Long sizeId, Long cartId) {
+        Optional<SizeEntity> sizeEntity = iSizeRepository.findById(sizeId);
+        TemperatureEntity temperatureEntity = sizeEntity.get().getTemperatureEntity();
+        MenuEntity menuEntity = temperatureEntity.getMenuEntity();
+
+        if(sizeEntity.isPresent()){
+            return new MenuBySizeForPurchaseDto(cartId, temperatureEntity.getMenuName(), temperatureEntity.getMenuName(),
+                    menuEntity.getPrice() + sizeEntity.get().getExtraCost());
         }
 
         return null;
