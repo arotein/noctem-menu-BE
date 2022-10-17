@@ -1,13 +1,16 @@
 package noctem.menuService.domain.size.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import noctem.menuService.domain.menu.entity.MenuEntity;
 import noctem.menuService.domain.size.dto.*;
 import noctem.menuService.domain.size.entity.SizeEntity;
 import noctem.menuService.domain.size.repository.ISizeRepository;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
+import noctem.menuService.global.common.CommonException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,7 +20,8 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class SizeServiceImple implements ISizeService{
+@Slf4j
+public class SizeServiceImple implements ISizeService {
 
     private final ISizeRepository iSizeRepository;
 
@@ -56,7 +60,7 @@ public class SizeServiceImple implements ISizeService{
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
 
-        if(sizeEntity.isPresent()){
+        if (sizeEntity.isPresent()) {
             SizeEntity size = mapper.map(sizeReqDto, SizeEntity.class); // SizeDto -> SizeEntity
             size.setId(sizeId); // 동일 id로 수정
             iSizeRepository.save(size); // 엔터티 저장
@@ -76,7 +80,7 @@ public class SizeServiceImple implements ISizeService{
         ModelMapper mapper = new ModelMapper(); // 모델매퍼 객체 사용
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT); // 모델매퍼 매핑전략 (정확히 일치하도록)
 
-        if(sizeEntity.isPresent()){
+        if (sizeEntity.isPresent()) {
             sizeEntity.get().setIsDeleted(true); // 삭제여부 true
 
             iSizeRepository.save(sizeEntity.get());
@@ -123,8 +127,8 @@ public class SizeServiceImple implements ISizeService{
         List<SizeEntity> sizeByTemp = iSizeRepository.findSizeListByTemp(temperatureId);
 
         return sizeByTemp.stream().map(sizeEntity ->
-            new SizeByTempResDto(sizeEntity.getId(), sizeEntity.getSize(), sizeEntity.getExtraCost(),
-                    sizeEntity.getCapacity()))
+                        new SizeByTempResDto(sizeEntity.getId(), sizeEntity.getSize(), sizeEntity.getExtraCost(),
+                                sizeEntity.getCapacity()))
                 .collect(Collectors.toList());
     }
 
@@ -135,9 +139,9 @@ public class SizeServiceImple implements ISizeService{
         TemperatureEntity temperatureEntity = sizeEntity.get().getTemperatureEntity();
         MenuEntity menuEntity = temperatureEntity.getMenuEntity();
 
-        if(sizeEntity.isPresent()){
+        if (sizeEntity.isPresent()) {
             return new SizeMenuResDto(sizeEntity.get().getId(), menuEntity.getId(), temperatureEntity.getMenuName(),
-                    menuEntity.getName(), menuEntity.getPrice()+sizeEntity.get().getExtraCost());
+                    menuEntity.getName(), menuEntity.getPrice() + sizeEntity.get().getExtraCost());
         }
         return null;
     }
@@ -150,7 +154,7 @@ public class SizeServiceImple implements ISizeService{
         TemperatureEntity temperatureEntity = sizeEntity.get().getTemperatureEntity();
         MenuEntity menuEntity = temperatureEntity.getMenuEntity();
 
-        if(sizeEntity.isPresent()){
+        if (sizeEntity.isPresent()) {
             return new MenuBySizeForCartDto(cartId, temperatureEntity.getMenuName(), temperatureEntity.getMenuEngName(),
                     temperatureEntity.getMenuImg(), temperatureEntity.getTemperature(),
                     menuEntity.getPrice() + sizeEntity.get().getExtraCost(), sizeEntity.get().getSize());
@@ -167,7 +171,7 @@ public class SizeServiceImple implements ISizeService{
         TemperatureEntity temperatureEntity = sizeEntity.get().getTemperatureEntity();
         MenuEntity menuEntity = temperatureEntity.getMenuEntity();
 
-        if(sizeEntity.isPresent()){
+        if (sizeEntity.isPresent()) {
             return new MenuBySizeForMyMenuDto(myMenuId, temperatureEntity.getMenuName(), temperatureEntity.getMenuImg(),
                     temperatureEntity.getTemperature(), menuEntity.getPrice() + sizeEntity.get().getExtraCost(),
                     sizeEntity.get().getSize());
@@ -180,15 +184,35 @@ public class SizeServiceImple implements ISizeService{
     @Override
     public MenuBySizeForPurchaseDto getMenuBySizeForPurchase(Long sizeId, Long cartId) {
         Optional<SizeEntity> sizeEntity = iSizeRepository.findById(sizeId);
+        if (!sizeEntity.isPresent()) {
+            throw CommonException.builder().errorCode(3005).httpStatus(HttpStatus.BAD_REQUEST).build();
+        }
+
         TemperatureEntity temperatureEntity = sizeEntity.get().getTemperatureEntity();
         MenuEntity menuEntity = temperatureEntity.getMenuEntity();
 
-        if(sizeEntity.isPresent()){
-            return new MenuBySizeForPurchaseDto(cartId, temperatureEntity.getMenuName(),
-                    temperatureEntity.getMenuEntity().getShortenName(),
-                    menuEntity.getPrice() + sizeEntity.get().getExtraCost());
-        }
+        Long categorySId = temperatureEntity.getMenuEntity().getCategorySEntity().getId();
 
-        return null;
+        log.info("categorySId : ", categorySId);
+        log.info("온도 : ", temperatureEntity.getTemperature());
+        System.out.println("categorySId = " + categorySId);
+        System.out.println("temperatureEntity = " + temperatureEntity.getTemperature());
+        System.out.println("!(categorySId == 3) = " + !(categorySId == 3L));
+        System.out.println("!(categorySId == 4) = " + !(categorySId == 4L));
+        System.out.println("!(categorySId == 8) = " + !(categorySId == 8L));
+        System.out.println("!(categorySId == 9) = " + !(categorySId == 9L));
+        System.out.println("!(categorySId == 10) = " + !(categorySId == 10L));
+
+        MenuBySizeForPurchaseDto result = new MenuBySizeForPurchaseDto(cartId, menuEntity.getName(),
+                temperatureEntity.getMenuEntity().getShortenName(),
+                menuEntity.getPrice() + sizeEntity.get().getExtraCost());
+
+        if (temperatureEntity.getTemperature() == "ice" &&
+                (!(categorySId == 3L) && !(categorySId == 4L) && !(categorySId == 8L) && !(categorySId == 9L) &&
+                !(categorySId == 10L))) {
+            System.out.println("if문 통과");
+            result.setMenuFullName("아이스 " + menuEntity.getName());
+        }
+        return result;
     }
 }

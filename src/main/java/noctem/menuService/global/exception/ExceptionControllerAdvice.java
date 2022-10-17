@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /***
  * errorCode: 3000~3999
+ * 사용 가능 에러코드 3006 ~
  */
 @Slf4j
 @RestControllerAdvice
