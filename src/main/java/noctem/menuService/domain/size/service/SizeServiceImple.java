@@ -193,24 +193,38 @@ public class SizeServiceImple implements ISizeService {
 
         Long categorySId = temperatureEntity.getMenuEntity().getCategorySEntity().getId();
 
-        log.info("categorySId : ", categorySId);
-        log.info("온도 : ", temperatureEntity.getTemperature());
-        System.out.println("categorySId = " + categorySId);
-        System.out.println("temperatureEntity = " + temperatureEntity.getTemperature());
-        System.out.println("!(categorySId == 3) = " + !(categorySId == 3L));
-        System.out.println("!(categorySId == 4) = " + !(categorySId == 4L));
-        System.out.println("!(categorySId == 8) = " + !(categorySId == 8L));
-        System.out.println("!(categorySId == 9) = " + !(categorySId == 9L));
-        System.out.println("!(categorySId == 10) = " + !(categorySId == 10L));
+        String shortenTemp = "";
+        String shortenSize = "";
+
+        switch (temperatureEntity.getTemperature()){
+            case "ice":
+                shortenTemp = "I";
+                break;
+            case "hot":
+                shortenTemp = "H";
+        }
+
+        switch (sizeEntity.get().getSize()){
+            case "Tall":
+                shortenSize = "T";
+                break;
+            case "Grande":
+                shortenSize = "G";
+                break;
+            case "Venti":
+                shortenSize = "V";
+        }
+
+        System.out.println("shortenSize = " + shortenSize);
+        System.out.println("shortenTemp = " + shortenTemp);
 
         MenuBySizeForPurchaseDto result = new MenuBySizeForPurchaseDto(cartId, menuEntity.getName(),
-                temperatureEntity.getMenuEntity().getShortenName(),
+                shortenTemp + "-" + shortenSize + ")" + temperatureEntity.getMenuEntity().getShortenName(),
                 menuEntity.getPrice() + sizeEntity.get().getExtraCost());
 
-        if (temperatureEntity.getTemperature() == "ice" &&
+        if (temperatureEntity.getTemperature().equals("ice") &&
                 (!(categorySId == 3L) && !(categorySId == 4L) && !(categorySId == 8L) && !(categorySId == 9L) &&
                 !(categorySId == 10L))) {
-            System.out.println("if문 통과");
             result.setMenuFullName("아이스 " + menuEntity.getName());
         }
         return result;
