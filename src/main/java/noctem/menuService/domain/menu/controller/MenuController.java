@@ -157,10 +157,10 @@ public class MenuController {
     }
 
     // 9. 소 카테고리 - 메뉴 조회(관리자용)
-    @GetMapping("/admin/menu/{categorySId}/{temperature}")
-    public CommonResponse getMenuByCategoryS(@PathVariable Long categorySId, @PathVariable String temperature){
+    @GetMapping("/admin/menu/{categorySId}")
+    public CommonResponse getMenuByCategoryS(@PathVariable Long categorySId){
         return CommonResponse.builder()
-                .data(iMenuService.getMenuForAdmin(categorySId, temperature))
+                .data(iMenuService.getMenuForAdmin(categorySId))
                 .build();
     }
 

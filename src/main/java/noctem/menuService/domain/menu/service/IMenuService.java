@@ -48,5 +48,5 @@ public interface IMenuService {
     MenuDetailResDto getMenuDetail(Long menuId);
 
     // 9. 소 카테고리 - 메뉴 조회(관리자용)
-    List<MenuForAdminDto> getMenuForAdmin(Long categorySId, String temperature);
+    List<MenuForAdminDto> getMenuForAdmin(Long categorySId);
 }

@@ -186,8 +186,8 @@ public class MenuServiceImple implements IMenuService {
 
     // 9. 소 카테고리 - 메뉴 조회(관리자용)
     @Override
-    public List<MenuForAdminDto> getMenuForAdmin(Long categorySId, String temperature) {
-        List<MenuEntity> menuByCategoryS = iMenuRepository.findMenuByCategoryS(categorySId, temperature);
+    public List<MenuForAdminDto> getMenuForAdmin(Long categorySId) {
+        List<MenuEntity> menuByCategoryS = iMenuRepository.findMenuByCategoryS(categorySId);
 
         return menuByCategoryS.stream().map(e ->
                 new MenuForAdminDto(e.getId(), e.getName(), e.getTemperatureEntityList().get(0).getMenuImg()))

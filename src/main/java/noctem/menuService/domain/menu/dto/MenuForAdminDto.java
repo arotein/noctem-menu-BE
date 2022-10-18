@@ -13,6 +13,6 @@ import java.util.List;
 public class MenuForAdminDto {
 
     private Long menuId;
-    private String name;
+    private String menuName;
     private String imgUrl;
 }
