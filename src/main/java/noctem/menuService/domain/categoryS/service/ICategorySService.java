@@ -14,6 +14,7 @@ public interface ICategorySService {
         4. 소 카테고리 전체 조회
         5. 소 카테고리 단건 조회
         6. 대 카테고리 - 소 카테고리 리스트 조회
+        7. 온도 - 소 카테고리 리스트 조회(관리자용)
      */
 
     // 1. 소 카테고리 등록
@@ -33,4 +34,8 @@ public interface ICategorySService {
 
     // 6. 대 카테고리 - 소 카테고리 리스트 조회
     List<CategorySResDto> getCategorySListByCategoryL(Long categoryLId);
+
+    // 7. 온도 - 소 카테고리 리스트 조회(관리자용)
+    List<CategorySResDto> getCategorySListByTemperature(String temperature);
+
 }

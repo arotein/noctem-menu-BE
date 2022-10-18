@@ -15,4 +15,16 @@ public interface ICategorySRepository extends JpaRepository<CategorySEntity, Lon
             "where l.id = :categoryLId"
     )
     List<CategorySEntity> findCategorySListByCategoryL(@Param("categoryLId") Long categoryLId);
+
+    @Query(value = "select * " +
+            "from categorys s " +
+            "join menu m " +
+            "on s.id = m.categorys_id " +
+            "join temperature t " +
+            "on m.id = t.menu_id " +
+            "where t.temperature = :temperature " +
+            "group by s.id",
+            nativeQuery = true
+    )
+    List<CategorySEntity> findCategorySListByTemperature(@Param("temperature") String temperature);
 }

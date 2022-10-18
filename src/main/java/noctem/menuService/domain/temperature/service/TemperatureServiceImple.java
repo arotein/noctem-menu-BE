@@ -1,8 +1,10 @@
 package noctem.menuService.domain.temperature.service;
 
 import lombok.RequiredArgsConstructor;
+import noctem.menuService.domain.menu.dto.MenuForAdminDto;
 import noctem.menuService.domain.menu.dto.MenuListResDto;
 import noctem.menuService.domain.temperature.dto.TemperatureDto;
+import noctem.menuService.domain.temperature.dto.TemperatureListForAdminResDto;
 import noctem.menuService.domain.temperature.dto.TemperatureListResDto;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 import noctem.menuService.domain.temperature.repository.ITemperatureRepository;
@@ -28,6 +30,7 @@ public class TemperatureServiceImple implements ITemperatureService{
         4. 온도 전체 조회
         5. 온도 단건 조회
         6. 메뉴-온도 리스트 조회
+        7. 소 카테고리 - 온도 조회(관리자용)
      */
 
     // 1. 온도 등록
@@ -135,5 +138,24 @@ public class TemperatureServiceImple implements ITemperatureService{
                         e.getDescription(), e.getMenuImg(), e.getTemperature(), e.getMenuEntity().getPrice(),
                         e.getMenuEntity().getAllergy()))
                 .collect(Collectors.toList());
+    }
+
+    // 7. 소 카테고리 - 온도 조회(관리자용)
+    @Override
+    public List<TemperatureListForAdminResDto> getTemperatureForAdmin(Long categorySId, String temperature) {
+
+        List<TemperatureEntity> temperatureEntityList = iTemperatureRepository.findTempForAdmin(categorySId, temperature);
+
+
+        return temperatureEntityList.stream().map(e ->
+        {
+            Long cateSId = e.getMenuEntity().getCategorySEntity().getId();
+            if(e.getTemperature().equals("ice") && (!(cateSId == 3L) && !(cateSId == 4L) && !(cateSId == 8L) &&
+                    !(cateSId == 9L) && !(cateSId == 10L))){
+                return new TemperatureListForAdminResDto(e.getId(), "아이스 " + e.getMenuEntity().getName(), e.getMenuImg());
+            }
+            return new TemperatureListForAdminResDto(e.getId(), e.getMenuEntity().getName(), e.getMenuImg());
+        }).collect(Collectors.toList());
+
     }
 }

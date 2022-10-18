@@ -38,6 +38,7 @@ public class MenuController {
         7-1. 장바구니 목록 조회 (리스트)
         7-2. 장바구니 목록 조회 (requestparam)
         8. 메뉴 하위 정보 상세 조회
+        9. 소 카테고리 - 메뉴 조회(관리자용)
      */
 
     // 1. 메뉴 등록
@@ -152,6 +153,14 @@ public class MenuController {
 
         return CommonResponse.builder()
                 .data(iMenuService.getMenuDetail(menuId))
+                .build();
+    }
+
+    // 9. 소 카테고리 - 메뉴 조회(관리자용)
+    @GetMapping("/admin/menu/{categorySId}/{temperature}")
+    public CommonResponse getMenuByCategoryS(@PathVariable Long categorySId, @PathVariable String temperature){
+        return CommonResponse.builder()
+                .data(iMenuService.getMenuForAdmin(categorySId, temperature))
                 .build();
     }
 

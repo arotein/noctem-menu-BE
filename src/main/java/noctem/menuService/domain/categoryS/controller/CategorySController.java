@@ -130,4 +130,16 @@ public class CategorySController {
                 .data(categorySResDtoList)
                 .build();
     }
+
+    // 7. 온도 - 소 카테고리 리스트 조회(관리자용)
+    @GetMapping("/admin/categoryS/{temperature}")
+    public CommonResponse getCategorySListByTemperature(@PathVariable String temperature){
+
+        List<CategorySResDto> categorySListByTemperature = iCategorySService.getCategorySListByTemperature(temperature);
+        categorySListByTemperature.forEach(e -> e.setIndex(categorySListByTemperature.indexOf(e)));
+
+        return CommonResponse.builder()
+                .data(categorySListByTemperature)
+                .build();
+    }
 }

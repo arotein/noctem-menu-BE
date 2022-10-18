@@ -33,6 +33,16 @@ public interface IMenuRepository extends JpaRepository<MenuEntity, Long>, IMenuR
 //    join personaloption p
 //    where t.id = s.temperature_id and s.id = 1 and m.id = t.menu_id and m.id = p.menu_entity_id;
 
+    @Query(value = "SELECT * " +
+            "FROM menu m " +
+            "join categorys s " +
+            "on s.id = m.categorys_id " +
+            "join temperature t " +
+            "on m.id = t.menu_id " +
+            "where s.id = :categorySId and t.temperature = :temperature",
+            nativeQuery = true
+    )
+    List<MenuEntity> findMenuByCategoryS(@Param("categorySId") Long categorySId, @Param("temperature") String temperature);
 
 
 }

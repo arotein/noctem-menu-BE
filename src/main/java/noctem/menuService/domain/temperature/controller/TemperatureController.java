@@ -3,6 +3,7 @@ package noctem.menuService.domain.temperature.controller;
 import lombok.RequiredArgsConstructor;
 import noctem.menuService.domain.categoryS.dto.CategorySResDto;
 import noctem.menuService.domain.temperature.dto.TemperatureDto;
+import noctem.menuService.domain.temperature.dto.TemperatureListForAdminResDto;
 import noctem.menuService.domain.temperature.dto.TemperatureListResDto;
 import noctem.menuService.domain.temperature.dto.vo.RequestTemperature;
 import noctem.menuService.domain.temperature.dto.vo.ResponseTemperature;
@@ -31,6 +32,7 @@ public class TemperatureController {
         4. 온도 전체 조회
         5. 온도 단건 조회
         6. 메뉴-온도 리스트 조회
+        7. 소 카테고리 - 온도 조회(관리자용)
      */
 
     // 1. 온도 등록
@@ -112,6 +114,17 @@ public class TemperatureController {
 
         return CommonResponse.builder()
                 .data(temperatureByMenu)
+                .build();
+    }
+
+    // 7. 소 카테고리 - 온도 조회(관리자용)
+    @GetMapping("/admin/temperature/{categorySId}/{temperature}")
+    public CommonResponse getTemperatureForAdmin(@PathVariable Long categorySId, @PathVariable String temperature){
+        List<TemperatureListForAdminResDto> temperatureForAdmin = iTemperatureService.getTemperatureForAdmin(categorySId, temperature);
+        temperatureForAdmin.forEach(e -> e.setIndex(temperatureForAdmin.indexOf(e)));
+
+        return CommonResponse.builder()
+                .data(temperatureForAdmin)
                 .build();
     }
 }

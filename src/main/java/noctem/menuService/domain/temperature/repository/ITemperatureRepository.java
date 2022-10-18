@@ -15,4 +15,15 @@ public interface ITemperatureRepository extends JpaRepository<TemperatureEntity,
             "where m.id = :menuId"
     )
     List<TemperatureEntity> findTempByMenu(@Param("menuId") Long menuId);
+
+    @Query(value = "SELECT * " +
+            "FROM temperature t " +
+            "join menu m " +
+            "on m.id = t.menu_id " +
+            "join categorys s " +
+            "on s.id = m.categorys_id " +
+            "where s.id = :categorySId and t.temperature = :temperature",
+            nativeQuery = true
+    )
+    List<TemperatureEntity> findTempForAdmin(@Param("categorySId") Long categorySId, @Param("temperature") String temperature);
 }

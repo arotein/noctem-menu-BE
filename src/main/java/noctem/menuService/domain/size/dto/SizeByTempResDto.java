@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
-import scala.Int;
 
 @Data
 public class SizeByTempResDto {

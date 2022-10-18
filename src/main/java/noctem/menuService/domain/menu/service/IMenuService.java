@@ -2,6 +2,7 @@ package noctem.menuService.domain.menu.service;
 
 import noctem.menuService.domain.menu.dto.*;
 
+import java.awt.*;
 import java.util.List;
 
 public interface IMenuService {
@@ -16,6 +17,7 @@ public interface IMenuService {
         7-1. 장바구니 목록 조회 (리스트)
         7-2. 장바구니 목록 조회 (requestparam)
         8. 메뉴 하위 정보 상세 조회
+        9. 소 카테고리 - 메뉴 조회(관리자용)
      */
 
     // 1. 메뉴 등록
@@ -44,4 +46,7 @@ public interface IMenuService {
 
     // 8. 메뉴 하위 정보 상세 조회
     MenuDetailResDto getMenuDetail(Long menuId);
+
+    // 9. 소 카테고리 - 메뉴 조회(관리자용)
+    List<MenuForAdminDto> getMenuForAdmin(Long categorySId, String temperature);
 }

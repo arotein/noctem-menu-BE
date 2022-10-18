@@ -52,6 +52,14 @@ logging:
     root: info
     org.hibernate.SQL: debug
 
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        type:
+#          descriptor:
+#            sql: trace
+
 greeting:
   message: Welcome to the Simple E-Commerce.
 

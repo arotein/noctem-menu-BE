@@ -27,6 +27,7 @@ public class CategorySServiceImple implements ICategorySService {
         4. 소 카테고리 전체 조회
         5. 소 카테고리 단건 조회
         6. 대 카테고리 - 소 카테고리 리스트 조회
+        7. 온도 - 소 카테고리 리스트 조회(관리자용)
      */
 
     // 1. 소 카테고리 등록
@@ -128,6 +129,17 @@ public class CategorySServiceImple implements ICategorySService {
 
         return categorySListByCategoryL.stream().map(e ->
             new CategorySResDto(e.getId(), e.getCategorySName(), e.getCategorySImg()))
+                .collect(Collectors.toList());
+    }
+
+    // 7. 온도 - 소 카테고리 리스트 조회(관리자용)
+    @Override
+    public List<CategorySResDto> getCategorySListByTemperature(String temperature) {
+
+        List<CategorySEntity> categorySListByTemperature = iCategorySRepository.findCategorySListByTemperature(temperature);
+
+        return categorySListByTemperature.stream().map(e->
+                new CategorySResDto(e.getId(), e.getCategorySName(), e.getCategorySImg()))
                 .collect(Collectors.toList());
     }
 }
