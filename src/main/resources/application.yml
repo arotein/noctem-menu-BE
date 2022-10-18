@@ -34,7 +34,7 @@ spring:
     bootstrap-servers: http://${KAFKA_SERVER}:9092 # 카프카 클러스터 주소
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_SERVER}:3306/menu?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://${MYSQL_SERVER}:3306/menu?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&useSSL=false
     username: ${NOCTEM_DB_USERNAME}
     password: ${NOCTEM_DB_PASSWORD}
   jpa:
