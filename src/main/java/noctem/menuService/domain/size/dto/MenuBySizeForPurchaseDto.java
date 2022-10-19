@@ -10,5 +10,6 @@ public class MenuBySizeForPurchaseDto {
     private Long cartId;
     private String menuFullName;
     private String menuShortName;
-    private Integer menuTotalPrice ;
+    private Integer menuTotalPrice;
+    private String imgUrl;
 }

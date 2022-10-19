@@ -220,7 +220,8 @@ public class SizeServiceImple implements ISizeService {
 
         MenuBySizeForPurchaseDto result = new MenuBySizeForPurchaseDto(cartId, menuEntity.getName(),
                 shortenTemp + "-" + shortenSize + ")" + temperatureEntity.getMenuEntity().getShortenName(),
-                menuEntity.getPrice() + sizeEntity.get().getExtraCost());
+                menuEntity.getPrice() + sizeEntity.get().getExtraCost(),
+                sizeEntity.get().getTemperatureEntity().getMenuImg());
 
         if (temperatureEntity.getTemperature().equals("ice") &&
                 (!(categorySId == 3L) && !(categorySId == 4L) && !(categorySId == 8L) && !(categorySId == 9L) &&
