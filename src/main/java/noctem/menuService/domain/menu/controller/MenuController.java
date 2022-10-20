@@ -168,8 +168,12 @@ public class MenuController {
     // 10. 메뉴 검색 (이름)
     @GetMapping("/menu/searchName")
     public CommonResponse getMenuSearchByName(String searchKeyword){
+
+        List<MenuListResDto> MenuListResDtoList = iMenuService.getMenuListSearchByName(searchKeyword);
+        MenuListResDtoList.forEach(e -> e.setIndex(MenuListResDtoList.indexOf(e)));
+
         return CommonResponse.builder()
-                .data(iMenuService.getMenuListSearchByName(searchKeyword))
+                .data(MenuListResDtoList)
                 .build();
     }
 }
