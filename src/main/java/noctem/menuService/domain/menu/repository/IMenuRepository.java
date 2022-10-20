@@ -53,4 +53,7 @@ public interface IMenuRepository extends JpaRepository<MenuEntity, Long>, IMenuR
     )
     List<MenuEntity> findMenuByCategoryS(@Param("categorySId") Long categorySId);
 
+    // 메뉴 검색 (이름)
+    List<MenuEntity> findByNameContaining(String searchKeyword);
+
 }

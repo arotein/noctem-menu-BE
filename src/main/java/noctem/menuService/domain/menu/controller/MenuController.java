@@ -39,6 +39,7 @@ public class MenuController {
         7-2. 장바구니 목록 조회 (requestparam)
         8. 메뉴 하위 정보 상세 조회
         9. 소 카테고리 - 메뉴 조회(관리자용)
+        10. 메뉴 검색 (이름)
      */
 
     // 1. 메뉴 등록
@@ -164,5 +165,11 @@ public class MenuController {
                 .build();
     }
 
-
+    // 10. 메뉴 검색 (이름)
+    @GetMapping("/menu/searchName")
+    public CommonResponse getMenuSearchByName(String searchKeyword){
+        return CommonResponse.builder()
+                .data(iMenuService.getMenuListSearchByName(searchKeyword))
+                .build();
+    }
 }

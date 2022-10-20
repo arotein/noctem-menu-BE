@@ -38,6 +38,7 @@ public class MenuServiceImple implements IMenuService {
         7. 장바구니 목록 조회
         8. 메뉴 하위 정보 상세 조회
         9. 소 카테고리 - 메뉴 조회(관리자용)
+        10. 메뉴 검색 (이름)
      */
 
     // 1. 메뉴 등록
@@ -192,5 +193,17 @@ public class MenuServiceImple implements IMenuService {
         return menuByCategoryS.stream().map(e ->
                 new MenuForAdminDto(e.getId(), e.getName(), e.getTemperatureEntityList().get(0).getMenuImg()))
                 .collect(Collectors.toList());
+    }
+
+    // 10. 메뉴 검색 (이름)
+    @Override
+    public List<MenuListResDto> getMenuListSearchByName(String searchKeyword) {
+
+        List<MenuEntity> menuEntityList = iMenuRepository.findByNameContaining(searchKeyword);
+
+        return menuEntityList.stream().map(e ->
+                new MenuListResDto(e.getId(), e.getTemperatureEntityList(), e.getPrice(), TEMPERATURE_POLICY))
+                .collect(Collectors.toList());
+
     }
 }

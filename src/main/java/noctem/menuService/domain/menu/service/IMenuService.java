@@ -18,6 +18,7 @@ public interface IMenuService {
         7-2. 장바구니 목록 조회 (requestparam)
         8. 메뉴 하위 정보 상세 조회
         9. 소 카테고리 - 메뉴 조회(관리자용)
+        10. 메뉴 검색 (이름)
      */
 
     // 1. 메뉴 등록
@@ -49,4 +50,7 @@ public interface IMenuService {
 
     // 9. 소 카테고리 - 메뉴 조회(관리자용)
     List<MenuForAdminDto> getMenuForAdmin(Long categorySId);
+
+    // 10. 메뉴 검색 (이름)
+    List<MenuListResDto> getMenuListSearchByName(String searchKeyword);
 }
