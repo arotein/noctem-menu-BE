@@ -155,7 +155,7 @@ public class SizeServiceImple implements ISizeService {
         MenuEntity menuEntity = temperatureEntity.getMenuEntity();
 
         if (sizeEntity.isPresent()) {
-            return new MenuBySizeForCartDto(cartId, temperatureEntity.getMenuName(), temperatureEntity.getMenuEngName(),
+            return new MenuBySizeForCartDto(cartId, menuEntity.getId(), temperatureEntity.getMenuName(), temperatureEntity.getMenuEngName(),
                     temperatureEntity.getMenuImg(), temperatureEntity.getTemperature(),
                     menuEntity.getPrice() + sizeEntity.get().getExtraCost(), sizeEntity.get().getSize());
         }
