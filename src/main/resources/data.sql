@@ -3,7 +3,6 @@ insert menu.categoryl values(1, now(), 0, now(), '음료');
 insert menu.categoryl values(2, now(), 0, now(), '푸드');
 
 -- 소 카테고리
-INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (1,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2022/09/[9200000004304]_20220902104522874.jpg','NEW',1);
 INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (2,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg','추천',1);
 INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (3,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9200000003763]_20220803131322551.jpg','리프레셔',1);
 INSERT INTO menu.categorys (id,created_at,is_deleted,updated_at,categorysimg,categorysname,categorylentity_id) VALUES (4,'2022-09-30 15:43',0,'2022-09-30 15:43','https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745467.jpg','콜드 브루',1);
