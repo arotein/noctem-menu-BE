@@ -8,6 +8,7 @@ import lombok.Data;
 public class MenuBySizeForPurchaseDto {
 
     private Long cartId;
+    private String categorySmall;
     private String menuFullName;
     private String menuShortName;
     private Integer menuTotalPrice;

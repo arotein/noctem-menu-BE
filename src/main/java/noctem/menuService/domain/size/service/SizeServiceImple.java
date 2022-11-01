@@ -36,6 +36,7 @@ public class SizeServiceImple implements ISizeService {
         8. 사이즈ID-메뉴 조회(프론트-장바구니 조회용)
         9. 사이즈ID-메뉴 조회(프론트-나만의메뉴 조회용)
         10. 사이즈ID-메뉴 조회(결제 조회용)
+        11. 사이즈ID-메뉴 조회(베트스 메뉴 조회용)
      */
 
     // 1. 사이즈 등록
@@ -218,7 +219,8 @@ public class SizeServiceImple implements ISizeService {
         System.out.println("shortenSize = " + shortenSize);
         System.out.println("shortenTemp = " + shortenTemp);
 
-        MenuBySizeForPurchaseDto result = new MenuBySizeForPurchaseDto(cartId, menuEntity.getName(),
+        MenuBySizeForPurchaseDto result = new MenuBySizeForPurchaseDto(cartId, menuEntity.getCategorySEntity().getCategorySName()
+                ,menuEntity.getName(),
                 shortenTemp + "-" + shortenSize + ")" + temperatureEntity.getMenuEntity().getShortenName(),
                 menuEntity.getPrice() + sizeEntity.get().getExtraCost(),
                 sizeEntity.get().getTemperatureEntity().getMenuImg());
@@ -229,5 +231,22 @@ public class SizeServiceImple implements ISizeService {
             result.setMenuFullName("아이스 " + menuEntity.getName());
         }
         return result;
+    }
+
+    // 11. 사이즈ID-메뉴 조회(베트스 메뉴 조회용)
+
+    @Override
+    public MenuBySizeForBestDto getMenuBySizeForBest(Long sizeId) {
+        Optional<SizeEntity> sizeEntity = iSizeRepository.findById(sizeId);
+        TemperatureEntity temperatureEntity = sizeEntity.get().getTemperatureEntity();
+        MenuEntity menuEntity = temperatureEntity.getMenuEntity();
+
+        if (sizeEntity.isPresent()) {
+            return new MenuBySizeForBestDto(menuEntity.getId(), temperatureEntity.getMenuName(),
+                    temperatureEntity.getMenuEngName(), temperatureEntity.getMenuImg(), temperatureEntity.getTemperature(),
+                    menuEntity.getPrice(), sizeEntity.get().getSize());
+        }
+
+        return null;
     }
 }

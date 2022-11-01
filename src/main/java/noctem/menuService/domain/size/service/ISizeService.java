@@ -17,6 +17,7 @@ public interface ISizeService {
         8. 사이즈ID-메뉴 조회(프론트-장바구니 조회용)
         9. 사이즈ID-메뉴 조회(프론트-나만의메뉴 조회용)
         10. 사이즈ID-메뉴 조회(결제 조회용)
+        11. 사이즈ID-메뉴 조회(베트스 메뉴 조회용)
      */
 
     // 1. 온도 등록
@@ -48,4 +49,7 @@ public interface ISizeService {
 
     // 10. 사이즈ID-메뉴 조회(결제 조회용)
     MenuBySizeForPurchaseDto getMenuBySizeForPurchase(Long sizeId, Long cartId);
+
+    // 11. 사이즈ID-메뉴 조회(베트스 메뉴 조회용)
+    MenuBySizeForBestDto getMenuBySizeForBest(Long sizeId);
 }
