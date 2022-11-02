@@ -10,6 +10,8 @@ server:
 spring:
   application:
     name: menu-service
+  main:
+    allow-bean-definition-overriding: true
   mvc:
     hiddenmethod:
       filter:
@@ -47,9 +49,6 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate.ddl-auto: create
     defer-datasource-initialization: true # data.sql
-  redis:
-    host: ${REDIS_SERVER}
-    port: 6379
 
 eureka:
   instance:
@@ -80,9 +79,9 @@ global:
   value: local-menu
 
 logging:
-#  charset:
-#    console: UTF-8
-#    file: UTF-8
+  #  charset:
+  #    console: UTF-8
+  #    file: UTF-8
   level:
     root: info
     org.hibernate.SQL: debug

@@ -145,9 +145,7 @@ public class MenuServiceImple implements IMenuService {
 
         String menuListRedis = redisRepository.getMenuList(categorySId);
         log.info(menuListRedis);
-
         log.info("test1");
-
         if (menuListRedis != null) {
             try{
                 List<MenuListResDto> result = AppConfig.objectMapper().readValue(menuListRedis, new TypeReference<>() {
@@ -160,7 +158,6 @@ public class MenuServiceImple implements IMenuService {
             }
 
         }
-
         List<MenuEntity> menuList = iMenuRepository.findMenuByCategoryS(categorySId);
         return menuList.stream().map(e ->
                         new MenuListResDto(e.getId(), e.getTemperatureEntityList(), e.getPrice(), TEMPERATURE_POLICY))

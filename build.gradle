@@ -21,16 +21,16 @@ jib {
 		}
 	}
 	container {
-		volumes = ["/tmp"]
-		environment = [
-				"NOCTEM_DB_USERNAME": System.getenv("NOCTEM_DB_USERNAME"),
-				"NOCTEM_DB_PASSWORD": System.getenv("NOCTEM_DB_PASSWORD"),
-				"NOCTEM_JWT_SIGNER": System.getenv("NOCTEM_JWT_SIGNER"),
-				"EUREKA_SERVER": "eureka",
-				"MYSQL_SERVER": "mysqldb",
-				"KAFKA_SERVER": "kafka",
-				"CONFIG_SERVER": "config"
-		]
+//		volumes = ["/tmp"]
+//		environment = [
+//				"NOCTEM_DB_USERNAME": System.getenv("NOCTEM_DB_USERNAME"),
+//				"NOCTEM_DB_PASSWORD": System.getenv("NOCTEM_DB_PASSWORD"),
+//				"NOCTEM_JWT_SIGNER": System.getenv("NOCTEM_JWT_SIGNER"),
+//				"EUREKA_SERVER": "eureka",
+//				"MYSQL_SERVER": "mysqldb",
+//				"KAFKA_SERVER": "kafka",
+//				"CONFIG_SERVER": "config"
+//		]
 	}
 }
 
