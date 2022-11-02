@@ -1,5 +1,6 @@
 package noctem.menuService.domain.menu.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import noctem.menuService.domain.menu.dto.*;
 
 import java.awt.*;
@@ -37,7 +38,7 @@ public interface IMenuService {
     MenuDto getOneMenu(Long menuId) throws Exception;
 
     // 6. 소카테고리-메뉴 조회
-    List<MenuListResDto> getMenuList(Long categorySId);
+    List<MenuListResDto> getMenuList(Long categorySId) throws JsonProcessingException;
 
     // 7-1. 장바구니 목록 조회 (리스트)
     List<CartAndOptionListResServDto> getMenuCartList(List<CartAndOptionsReqServDto> cartAndOptionsReqServDto);

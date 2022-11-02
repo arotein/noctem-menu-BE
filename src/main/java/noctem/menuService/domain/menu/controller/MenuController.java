@@ -1,5 +1,6 @@
 package noctem.menuService.domain.menu.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import noctem.menuService.domain.menu.dto.CartAndOptionsReqServDto;
@@ -115,7 +116,7 @@ public class MenuController {
 
     // 6. 소카테고리-메뉴 조회
     @GetMapping("/{categorySId}/menu")
-    public CommonResponse getMenuList(@PathVariable Long categorySId) {
+    public CommonResponse getMenuList(@PathVariable Long categorySId) throws JsonProcessingException {
 
         List<MenuListResDto> menuList = iMenuService.getMenuList(categorySId);
         menuList.forEach(e -> e.setIndex(menuList.indexOf(e)));

@@ -2,6 +2,7 @@ package noctem.menuService.domain.menu.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import noctem.menuService.domain.temperature.entity.TemperatureEntity;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class MenuListResDto {
 
     private Integer index;

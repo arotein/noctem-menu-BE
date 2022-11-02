@@ -47,6 +47,9 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate.ddl-auto: create
     defer-datasource-initialization: true # data.sql
+  redis:
+    host: ${REDIS_SERVER}
+    port: 6379
 
 eureka:
   instance:

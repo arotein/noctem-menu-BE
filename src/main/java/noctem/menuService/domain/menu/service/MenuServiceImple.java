@@ -1,11 +1,16 @@
 package noctem.menuService.domain.menu.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import noctem.menuService.AppConfig;
 import noctem.menuService.domain.menu.dto.*;
 import noctem.menuService.domain.menu.entity.MenuEntity;
 import noctem.menuService.domain.menu.repository.IMenuRepository;
 import noctem.menuService.domain.nutrition.entity.NutritionEntity;
 import noctem.menuService.domain.nutrition.repository.INutritionRepository;
+import noctem.menuService.domain.redis.RedisRepository;
 import noctem.menuService.domain.size.entity.SizeEntity;
 import noctem.menuService.domain.size.repository.ISizeRepository;
 import org.modelmapper.ModelMapper;
@@ -21,12 +26,14 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class MenuServiceImple implements IMenuService {
 
     private final IMenuRepository iMenuRepository;
     private final ISizeRepository iSizeRepository;
     private final INutritionRepository nutritionRepository;
     private final String TEMPERATURE_POLICY = "ice";
+    private final RedisRepository redisRepository;
 
     /*
         1. 메뉴 등록
@@ -135,11 +142,32 @@ public class MenuServiceImple implements IMenuService {
     // 6. 소카테고리-메뉴 조회
     @Override
     public List<MenuListResDto> getMenuList(Long categorySId) {
+
+        String menuListRedis = redisRepository.getMenuList(categorySId);
+        log.info(menuListRedis);
+
+        log.info("test1");
+
+        if (menuListRedis != null) {
+            try{
+                List<MenuListResDto> result = AppConfig.objectMapper().readValue(menuListRedis, new TypeReference<>() {
+                });
+                log.info("get getMenuList from redis");
+                return result;
+            } catch (JsonProcessingException e){
+                log.info("JsonProcessingException in getMenuList");
+                log.info(e.getMessage());
+            }
+
+        }
+
         List<MenuEntity> menuList = iMenuRepository.findMenuByCategoryS(categorySId);
         return menuList.stream().map(e ->
                         new MenuListResDto(e.getId(), e.getTemperatureEntityList(), e.getPrice(), TEMPERATURE_POLICY))
                 .collect(Collectors.toList());
     }
+
+
 
     // 7-1. 장바구니 목록 조회 (리스트)
     @Override
