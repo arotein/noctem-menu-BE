@@ -1,5 +1,5 @@
 server:
-  port: 53639
+  port: 0
   servlet:
     encoding:
       charset: UTF-8
@@ -32,13 +32,13 @@ spring:
       refresh:
         enabled: true
       destination: config-topic
-  kafka:
-    bootstrap-servers: http://${KAFKA_SERVER}:9092 # 카프카 클러스터 주소
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_SERVER}:3306/menu?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-    username: ${NOCTEM_DB_USERNAME}
-    password: ${NOCTEM_DB_PASSWORD}
+#  kafka:
+#    bootstrap-servers: http://${KAFKA_SERVER}:9092 # 카프카 클러스터 주소
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://${MYSQL_SERVER}:3306/menu?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+#    username: ${NOCTEM_DB_USERNAME}
+#    password: ${NOCTEM_DB_PASSWORD}
   jpa:
     show-sql: 'false'
     properties:
@@ -57,8 +57,8 @@ eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
-    service-url:
-      defaultZone: http://${EUREKA_SERVER}:8761/eureka
+#    service-url:
+#      defaultZone: http://${EUREKA_SERVER}:8761/eureka
 
 management:
   endpoints:
