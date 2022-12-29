@@ -40,7 +40,7 @@ spring:
 #    username: ${NOCTEM_DB_USERNAME}
 #    password: ${NOCTEM_DB_PASSWORD}
   jpa:
-    show-sql: 'false'
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
@@ -84,7 +84,7 @@ logging:
   #    file: UTF-8
   level:
     root: info
-    org.hibernate.SQL: debug
+#    org.hibernate.SQL: debug
 
 #logging:
 #  level:
